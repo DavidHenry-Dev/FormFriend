@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema({
   title: {
@@ -17,8 +17,9 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  likes: {
-    type: Number,
+  liftCategory: {
+    type: String,
+    enum: ['Chest', 'Shoulders', 'Back', 'Arms', 'Legs', 'Core'],
     required: true,
   },
   user: {
@@ -29,6 +30,6 @@ const PostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-})
+});
 
-module.exports = mongoose.model('Post', PostSchema)
+module.exports = mongoose.model('Post', PostSchema);
