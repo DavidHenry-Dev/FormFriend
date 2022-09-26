@@ -14,11 +14,14 @@
       <button class="btn btn-primary fa fa-trash" type="submit">Delete Post</button>
     </form>
     <%}%>
-    <ul class="h-10 w-full flex">
+    <ul class="h-10 w-full flex flex-col gap-20 p-5 m-5">
       <% for(var i=0; i<comments.length; i++) {%>
     <li class="h-10">
       <form class="col-1" action="/comment/likeComment/<%=post._id%>/<%=comments[i]._id %>?_method=PUT" method="POST">
         <button class="btn btn-primary" type="submit"><i class="fa-solid fa-arrow-up"></i></button>
+      </form>
+      <form class="col-1" action="/comment/dislikeComment/<%=post._id%>/<%=comments[i]._id %>?_method=PUT" method="POST">
+        <button class="btn btn-primary" type="submit"><i class="fa-solid fa-arrow-down"></i></button>
       </form>
       <h3 class="col-3">Likes: <%= comments[i].likes %></h3>
       <p><%= comments[i].comment %></p>
