@@ -1,8 +1,5 @@
 <% for(var i=0; i<posts.length; i++) {%>
 <div class="card card-side bg-base-100 shadow-xl w-[355px] sm:w-[600px] pb-3 pt-3">
-  <a href="/post/<%= posts[i]._id%>">
-    <iframe class="h-full hidden" src="<%= posts[i].video%>" frameborder="0"></iframe>
-  </a>
   <div class="card-body">
     <div class="flex flex-col mb-4 text-sm">
       <p>Posted on: <%= posts[i].createdAt.toLocaleDateString() %></p>
@@ -15,6 +12,7 @@
     <div class="card-actions flex-nowrap justify-between mt-10">
 
       <button class="btn btn-primary" href=""><a href="/post/<%= posts[i]._id%>">View post</a></button>
+
     </div>
   </div>
 </div>

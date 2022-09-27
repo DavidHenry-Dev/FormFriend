@@ -1,22 +1,23 @@
 <%- include('partials/header') -%>
-<div class="h-screen p-2">
-  <div class="flex flex-col justify-center items-center h-full">
-    <h2 class='text-2xl font-bold mb-5 mt-10'><%= post.title %></h2>
-    <p class='text-lg mt-5'><%= post.caption %></p>
-    <div class="h-full w-full flex flex-col  justify-evenly">
-      <iframe class="h-full w-fullp-2" src="<%= post.video%>" frameborder="0"></iframe>
+<div class="h-3/4 p-3">
+  <div class="flex flex-col h-full text-center gap-y-5">
+    <div class="flex justify-between mt-1">
+      Poster: <%= user.userName.split("@")[0] %> <span class="text-md text-gray-400"><%= post.createdAt.toLocaleTimeString() %></span>
+    </div>
+    <h2 class='text-2xl font-bold mt-4'><%= post.title %></h2>
+    <p class='text-lg mt-5 mb-5'><%= post.caption %></p>
+    <div class="h-full">
+      <iframe class="aspect-[9/16] h-full w-full" src="<%= post.video%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <!-- <%if(post.user == user.id){ %>
     <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
       <button class="btn btn-primary fa fa-trash" type="submit">Delete Post</button>
     </form>
-    <%}%> -->
+    <%}%>  -->
   </div>
-
 </div>
-<!-- NEW TEST COOOOOOOOOOOOODE -->
-<div class="antialiased mx-auto max-w-screen-sm mt-5">
-  <h3 class="mb-4 ml-2 text-lg font-semibold text-gray-900">Comments</h3>
+<div class="antialiased mx-auto max-w-screen-sm mt-5 bg-gray-200">
+  <h3 class=" ml-4 pt-4 text-lg font-semibold text-gray-900">Comments</h3>
 
   <div class="space-y-4">
     <div class="flex m-2">
@@ -46,14 +47,11 @@
   </div>
 </div>
 <div class="mt-5">
-  <h2>Add a comment</h2>
-
-  <form action="/comment/createComment/<%=post._id%>" method="POST">
+  <form class="flex flex-col items-center justify-evenly" action="/comment/createComment/<%=post._id%>" method="POST">
     <div class="mb-3">
-      <label for="comment" class="form-label">Comment</label>
-      <input type="text" class="form-control" id="comment" name="comment">
+      <textarea class="form-control text-xl text-left border-2 mb-2 p-2" id="caption" name="caption" placeholder="Comment on <%= user.userName.split("@")[0] %>'s post..." rows="7" cols="25"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary mb-5">Submit</button>
   </form>
 </div>
 
