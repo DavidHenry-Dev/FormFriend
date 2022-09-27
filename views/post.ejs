@@ -1,52 +1,60 @@
 <%- include('partials/header') -%>
-<div class="h-screen">
-  <div class="flex flex-col justify-evenly items-center h-full">
-    <div class="h-full w-96 flex gap-20 justify-center">
-
-      <iframe class="h-[600]" src="<%= post.video%>" frameborder="0"></iframe>
-      <div class='h-full w-1/2'>
-        <h2 class='text-2xl font-bold mb-5'><%= post.title %></h2>
-        <p class='text-lg'><%= post.caption %></p>
-      </div>
+<div class="h-screen p-2">
+  <div class="flex flex-col justify-center items-center h-full">
+    <h2 class='text-2xl font-bold mb-5 mt-10'><%= post.title %></h2>
+    <p class='text-lg mt-5'><%= post.caption %></p>
+    <div class="h-full w-full flex flex-col  justify-evenly">
+      <iframe class="h-full w-fullp-2" src="<%= post.video%>" frameborder="0"></iframe>
     </div>
-    <%if(post.user == user.id){ %>
+    <!-- <%if(post.user == user.id){ %>
     <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
       <button class="btn btn-primary fa fa-trash" type="submit">Delete Post</button>
     </form>
-    <%}%>
-    <ul class="h-10 w-full flex flex-col gap-20 p-5 m-5">
-      <% for(var i=0; i<comments.length; i++) {%>
-    <li class="h-10">
-      <form class="col-1" action="/comment/likeComment/<%=post._id%>/<%=comments[i]._id %>?_method=PUT" method="POST">
-        <button class="btn btn-primary" type="submit"><i class="fa-solid fa-arrow-up"></i></button>
-      </form>
-      <form class="col-1" action="/comment/dislikeComment/<%=post._id%>/<%=comments[i]._id %>?_method=PUT" method="POST">
-        <button class="btn btn-primary" type="submit"><i class="fa-solid fa-arrow-down"></i></button>
-      </form>
-      <h3 class="col-3">Likes: <%= comments[i].likes %></h3>
-      <p><%= comments[i].comment %></p>
-    </li>
-    <% } %>
-    </ul>
-    <div class="mt-5">
-      <h2>Add a comment</h2>
-
-      <form action="/comment/createComment/<%=post._id%>" method="POST">
-        <div class="mb-3">
-          <label for="comment" class="form-label">Comment</label>
-          <input type="text" class="form-control" id="comment" name="comment">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-
-    <div>
-      <a class="btn btn-primary" href="/profile">Return to Profile</a>
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
-    </div>
+    <%}%> -->
   </div>
 
 </div>
+<!-- NEW TEST COOOOOOOOOOOOODE -->
+<div class="antialiased mx-auto max-w-screen-sm mt-5">
+  <h3 class="mb-4 ml-2 text-lg font-semibold text-gray-900">Comments</h3>
 
+  <div class="space-y-4">
+    <div class="flex m-2">
+      <div class="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+        <strong><%= user.userName.split("@")[0] %></strong> <span class="text-xs text-gray-400"><%= post.createdAt.toLocaleTimeString() %></span>
+        <p class="text-md">
+          <%= post.caption %>
+        </p>
+        <h4 class="my-5 uppercase tracking-wide text-gray-400 font-bold text-xs">Replies</h4>
+        <% for(var i=0; i<comments.length; i++) {%>
+        <div class="space-y-4">
+          <div class="flex">
+            <div class="flex-shrink-0 mr-3">
+              <img class="mt-3 rounded-full w-6 h-6 sm:w-8 sm:h-8" src="https://images.unsplash.com/photo-1604426633861-11b2faead63c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80" alt="">
+            </div>
+            <div class="flex-1 bg-gray-100 rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+              <strong><%=comments[i].user.userName.split("@")[0]%></strong> <span class="text-xs text-gray-400"><%= comments[i].createdAt.toLocaleTimeString() %></span>
+              <p class="text-md sm:text-lg">
+                <%= comments[i].comment %>
+              </p>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mt-5">
+  <h2>Add a comment</h2>
+
+  <form action="/comment/createComment/<%=post._id%>" method="POST">
+    <div class="mb-3">
+      <label for="comment" class="form-label">Comment</label>
+      <input type="text" class="form-control" id="comment" name="comment">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
 
 <%- include('partials/footer') -%>

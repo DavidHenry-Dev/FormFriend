@@ -1,25 +1,10 @@
 <%- include('partials/header') -%>
 
 
-<div class="w-full">
+<div class="w-full bg-gray-200">
   <div class="h-screen flex flex-wrap justify-evenly items-center">
-    <!-- <% for(var i=0; i<posts.length; i++) {%>
-    <div class="card card-side h-70 bg-base-100 shadow-xl h-[400px] w-[600px]">
-      <a href="/post/<%= posts[i]._id%>">
-        <iframe class="w-full h-full" src="<%= posts[i].video%>" frameborder="0"></iframe>
-      </a>
-      <div class="card-body">
-        <h2 class="card-title"><%= posts[i].title %></h2>
-        <p><%= posts[i].caption %>.</p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary"><a href="/post/<%= posts[i]._id%>">Watch</a></button>
-        </div>
-      </div>
-    </div>
-    <% } %> -->
 
     <%- include('partials/post') -%>
-
 
   </div>
 </div>
