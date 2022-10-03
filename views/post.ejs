@@ -1,58 +1,65 @@
 <%- include('partials/header') -%>
-<div class="h-3/4 p-3">
-  <div class="flex flex-col h-full text-center gap-y-5">
-    <div class="flex justify-between mt-1">
-      Poster: <%= user.userName.split("@")[0] %> <span class="text-md text-gray-400"><%= post.createdAt.toLocaleTimeString() %></span>
-    </div>
-    <h2 class='text-2xl font-bold mt-4'><%= post.title %></h2>
-    <p class='text-lg mt-5 mb-5'><%= post.caption %></p>
-    <div class="h-full">
-      <iframe class="aspect-[9/16] h-full w-full" src="<%= post.video%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <!-- <%if(post.user == user.id){ %>
-    <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
-      <button class="btn btn-primary fa fa-trash" type="submit">Delete Post</button>
-    </form>
-    <%}%>  -->
-  </div>
-</div>
-<div class="antialiased mx-auto max-w-screen-sm mt-5 bg-gray-200">
-  <h3 class=" ml-4 pt-4 text-lg font-semibold text-gray-900">Comments</h3>
 
-  <div class="space-y-4">
-    <div class="flex m-2">
-      <div class="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
-        <strong><%= user.userName.split("@")[0] %></strong> <span class="text-xs text-gray-400"><%= post.createdAt.toLocaleTimeString() %></span>
-        <p class="text-md">
-          <%= post.caption %>
-        </p>
-        <h4 class="my-5 uppercase tracking-wide text-gray-400 font-bold text-xs">Replies</h4>
-        <% for(var i=0; i<comments.length; i++) {%>
-        <div class="space-y-4">
-          <div class="flex">
-            <div class="flex-shrink-0 mr-3">
-              <img class="mt-3 rounded-full w-6 h-6 sm:w-8 sm:h-8" src="https://images.unsplash.com/photo-1604426633861-11b2faead63c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80" alt="">
+<div class="flex flex-col justify-center items-center px-2 bg-zinc-800">
+  <div class="bg-zinc-100 lg:w-1/2 shadow-inner">
+  <div class="flex justify-between text-md lg:text-lg m-2 p-2">
+    <h3>Posted by: <%= post.user.userName.split("@")[0] %></h3>
+    <h3 class="text-gray-400"><%= post.createdAt.toLocaleTimeString() %></h3>
+  </div>
+    <h1 class="text-lg md:text-xl lg:text-2xl text-center my-5">
+      <%= post.caption %>
+    </h1>
+  <div class="flex justify-center items-center w-full">
+    <video controls="controls" name="Video Name" class="lg:w-1/3">
+      <source src="<%= post.video%>">
+    </video>
+  </div>
+  <div class="w-full shadow-lg px-4">
+    <div class="space-y-4">
+      <div class="bg-white">
+        <div class="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed"> 
+          <div class="mt-5">
+            <form action="/comment/createComment/<%=post._id%>" method="POST" class="flex flex-col items-center justify-evenly">
+              <div class="mb-3 w-full lg:w-3/4">
+                <textarea class="form-control text-xl text-left border-2 mb-2 p-2 w-full" rows="5" placeholder="Comment on <%= post.user.userName.split("@")[0] %>'s post..." name='comment' id="comment" type="text"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary mb-5">Submit</button>
+            </form>
+          </div> 
+          <h4 class="my-5 uppercase tracking-wide text-gray-400 font-bold text-xs">Comments</h4>
+         
+          <% for(var i=0; i<comments.length; i++) {%>
+          <div class="space-y-4">
+            <div class="flex">
+              <div class="flex-shrink-0 mr-3 justify-center">
+                <img class="rounded-full w-8 h-8 sm:w-8 sm:h-8 mb-3" src="https://img.icons8.com/color/48/000000/test-account.png" alt="">
+                <div class='flex flex-col justify-evenly text-center'>
+                  <form class="" action="/comment/likeComment/<%=post._id %>/<%=comments[i]._id %>?_method=PUT" method="POST" class="flex justify-end">
+                    <button class="" type="submit"><i class="fa-regular fa-thumbs-up fa-lg text-green-700"></i></button>
+                  </form>
+                  <h2><%= comments[i].likes %></h3>
+                    <form class="" action="/comment/dislikeComment/<%= post._id %>/<%=comments[i]._id %>?_method=PUT" method="POST" class="flex justify-end">
+                      <button class="" type="submit"><i class="fa-regular fa-thumbs-down fa-lg text-red-800"></i></button>
+                    </form>
+                </div>
+              </div>
+              <div class="flex-1 bg-gray-100 rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+                <strong><%=comments[i].user.userName.split("@")[0]%></strong> <span class="text-xs text-gray-400"><%= comments[i].createdAt.toLocaleTimeString() %></span> -->
+                <p class="h-[80px] text-md sm:text-lg md:text-xl lg:text-2xl">
+                  <%= comments[i].comment %>
+                </p>
+              </div>
+
             </div>
-            <div class="flex-1 bg-gray-100 rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
-              <strong><%=comments[i].user.userName.split("@")[0]%></strong> <span class="text-xs text-gray-400"><%= comments[i].createdAt.toLocaleTimeString() %></span>
-              <p class="text-md sm:text-lg">
-                <%= comments[i].comment %>
-              </p>
-            </div>
+            <% } %>
           </div>
-          <% } %>
+         
+
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="mt-5">
-  <form class="flex flex-col items-center justify-evenly" action="/comment/createComment/<%=post._id%>" method="POST">
-    <div class="mb-3">
-      <textarea class="form-control text-xl text-left border-2 mb-2 p-2" id="caption" name="caption" placeholder="Comment on <%= user.userName.split("@")[0] %>'s post..." rows="7" cols="25"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary mb-5">Submit</button>
-  </form>
 </div>
 
 <%- include('partials/footer') -%>

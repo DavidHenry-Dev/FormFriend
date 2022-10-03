@@ -8,9 +8,6 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
 router.post('/createComment/:id', commentsController.createComment);
 router.put('/likeComment/:postid/:commentid', commentsController.likeComment);
-router.put(
-  '/dislikeComment/:postid/:commentid',
-  commentsController.dislikeComment
-);
+router.put('/dislikeComment/:postid/:commentid', commentsController.dislikeComment);
 
 module.exports = router;

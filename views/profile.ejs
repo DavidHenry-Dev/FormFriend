@@ -1,50 +1,48 @@
 <%- include('partials/header') -%>
 
-
 <div class="lg:p-16">
-  <div class="p-8 bg-white shadow mt-24">
+  <div class="mt-20 bg-white p-8 shadow">
     <div class="grid grid-cols-1 md:grid-cols-3">
-      <div class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
+      <div class="order-last mt-20 grid grid-cols-3 text-center md:order-first md:mt-0">
         <div>
-          <p class="font-bold text-gray-700 text-xl">22</p>
+          <p class="text-xl font-bold text-gray-700">22</p>
           <p class="text-gray-400">Likes</p>
         </div>
         <div>
-          <p class="font-bold text-gray-700 text-xl">2</p>
+          <p class="text-xl font-bold text-gray-700">2</p>
           <p class="text-gray-400">Post</p>
         </div>
         <div>
-          <p class="font-bold text-gray-700 text-xl">89</p>
+          <p class="text-xl font-bold text-gray-700">89</p>
           <p class="text-gray-400">Comments</p>
         </div>
       </div>
       <div class="relative">
-        <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
+        <div class="absolute inset-x-0 top-0 mx-auto -mt-24 flex h-48 w-48 items-center justify-center rounded-full bg-indigo-100 text-indigo-500 shadow-2xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
           </svg>
         </div>
       </div>
-      <div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center"><button class="py-2 px-4 uppercase rounded btn btn-primary shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"><a href="/feed">View Feed</a></button> <button class="btn btn-accent py-2 px-4 uppercase rounded shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"> Message</button> </div>
+      <div class="mt-32 flex justify-between space-x-8 md:mt-0 md:justify-center">
+        <button class="btn btn-primary transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg">
+          <a href="/feed">View Feed</a>
+        </button>
+        <button class="btn btn-accent transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg">Message</button>
+      </div>
     </div>
-    <div class="mt-20 text-center border-b pb-12">
-      <h1 class="text-4xl font-medium text-gray-700"><%= user.userName %>, <span class="font-light text-gray-500">35</span></h1>
-      <p class="font-light text-gray-600 mt-3">West Palm Beach, FL</p>
-      <p class="mt-8 text-gray-500">Exercise: Weightlifting</p>
-      <p class="mt-2 text-gray-500">Bench:250 Deadlift:350 Squat:335</p>
-    </div>
-    <div class="mt-12 flex justify-center items-center gap-x-20">
 
-
-      <div class="flex flex-col gap-x-10 items-center">
-        <h3 class="text-center text-2xl lg:px-16 font-bold">Upload a video and get some feeback:</h3>
-        <form action="/post/createPost" enctype="multipart/form-data" method="POST" class='flex flex-col items-center justify-evenly mt-10 gap-y-10'>
+    <div class="mt-12 flex items-center justify-center gap-x-20">
+      <div class="flex flex-col items-center gap-x-10">
+        <h3 class="mt-2 text-center text-2xl font-bold lg:px-16">Upload a video and get some feeback:</h3>
+        <form action="/post/createPost" enctype="multipart/form-data" method="POST" class="mt-10 flex flex-col items-center justify-evenly gap-y-10">
           <div class="flex flex-col gap-y-3">
-            <h3 class="text-gray-600 text-center text-2xl">Post title:</h3>
-            <input type="text" class="form-control text-xl border-2 p-1 placeholder-gray-400" id="title" name="title" placeholder="Post Title...">
-            <h3 class="text-gray-600 text-center text-2xl">Your video:</h3>
-            <input type="file" class="form-control text-xl border-2 p-1" id="imageUpload" name="video">
-            <h3 class="text-gray-600 text-center text-2xl">Body part:</h3>
-            <select class="ext-gray-600 text-center text-2xl border-2" name="liftCategory" id="liftCategory">
+            <h3 class="text-center text-2xl text-gray-600">Post title:</h3>
+            <input type="text" class="form-control border-2 p-1 text-xl placeholder-gray-400" id="title" name="title" placeholder="Post Title..." />
+            <h3 class="text-center text-2xl text-gray-600">Your video:</h3>
+            <input type="file" class="form-control border-2 p-1 text-xl" id="imageUpload" name="video" />
+            <h3 class="text-center text-2xl text-gray-600">Body part:</h3>
+            <select class="ext-gray-600 border-2 text-center text-2xl" name="liftCategory" id="liftCategory">
               <option value="Chest">Chest</option>
               <option value="Shoulders">Shoulders</option>
               <option value="Back">Back</option>
@@ -54,18 +52,18 @@
             </select>
           </div>
           <div class="flex flex-col items-center">
-            <textarea class="form-control text-xl text-left border-2 mb-2 p-2" id="caption" name="caption" placeholder="What do you need help with..." rows="7" cols="25"></textarea>
-            <button type="submit" class="w-50 btn btn-accent py-2 px-4 uppercase rounded shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5" value=" Upload">Submit</button>
+            <textarea class="form-control mb-2 border-2 p-2 text-left text-xl" id="caption" name="caption" placeholder="What do you need help with..." rows="7" cols="25"></textarea>
+            <button type="submit" class="w-50 btn btn-accent transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg" value=" Upload">Submit</button>
           </div>
         </form>
       </div>
-      <!-- <p class="text-gray-600 text-center font-light lg:px-16">An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.</p> -->
     </div>
   </div>
 </div>
-<h3 class="text-center text-2xl lg:px-16 font-bold mb-5 mt-5">Your Post:</h3>
-<div class="flex justify-center bg-gray-200">
-  <ul class="flex flex-wrap m-5 gap-y-5 justify-center lg:gap-x-5">
+
+<div class="mx-auto flex flex-col items-center justify-center bg-gray-200 py-6 lg:w-3/5">
+  <h3 class="mb-5 mt-5 text-center text-3xl font-bold lg:px-16">Your Post:</h3>
+  <ul class="m-5 flex flex-col justify-evenly gap-y-5 lg:gap-x-5">
     <%- include('partials/post') -%>
   </ul>
 </div>

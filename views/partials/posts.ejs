@@ -1,15 +1,15 @@
 <% for(var i=0; i<posts.length; i++) {%>
   <div class="flex items-center justify-center">
-    <div class="w-[365px] rounded-xl border bg-white p-5 shadow-md sm:w-[600px]">
+    <div class="w-[365px] rounded-xl border bg-white p-5 shadow-md md:w-[600px] lg:w-[750px]">
       <div class="flex w-full items-center justify-between border-b pb-3">
         <div class="flex items-center space-x-3">
           <div class="h-8 w-8 rounded-full bg-slate-400 bg-[url('https://i.pravatar.cc/32')]"></div>
-          <div class="text-lg font-bold text-slate-700">
-            <%= user.userName.split("@")[0] %>
-            <div class="text-neutral-500 text-xs"><%= posts[i].createdAt.toLocaleDateString()%> @ <%= posts[i].createdAt.toLocaleTimeString() %></div>
-          </div>
+          <div class="text-lg font-bold text-slate-700"><%= posts[i].user.userName.split("@")[0] %></div>
         </div>
-        <button class="btn-accent mx-2 cursor-default rounded-2xl border px-5 py-1 text-xs font-semibold"><%= posts[i].liftCategory %></button>
+        <div class="flex items-center space-x-8">
+          <button class="btn-accent mx-2 rounded-2xl border px-5 py-1 text-xs font-semibold"><%= posts[i].liftCategory %></button>
+          <div class="text-neutral-500 text-xs"><%= posts[i].createdAt.toLocaleDateString()%> @ <%= posts[i].createdAt.toLocaleTimeString() %></div>
+        </div>
       </div>
 
       <div class="mt-4 mb-6">
@@ -39,6 +39,5 @@
       </div>
     </div>
   </div>
-
-  <% } %></posts.length;
->
+  <% } %>
+</posts.length;>
