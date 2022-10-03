@@ -153,6 +153,8 @@ Use this space to show useful examples of how a project can be used. Additional 
 - [ ] Limit likes/dislikes to one per user. Just like above, I also had this done client side but decided to scrap it and implement it server side soon.
 - [ ] Add ability to upload user photo for the user's profile
 - [ ] Better logo and some small design tweaks to make it prettier.
+- [ ] Add some kind of search/sorting for post ( For example, by bodypart category )
+- [ ] Maybe: Re-design with React!
 
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
@@ -191,20 +193,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+David Henry - [@ItsWaveyDavid](https://twitter.com/ItsWaveyDavid) - DavidHenryDev@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/DavidHenry-Dev/FormFriend)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
