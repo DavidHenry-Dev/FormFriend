@@ -141,11 +141,10 @@ A computer, code editor, a free cloudinary account, a free mongo atlas account, 
 <!-- ROADMAP AND OPTIMIZATIONS -->
 ## Roadmap and Optimizations
 
-- [ ] Add a "Best Answer" label to the comment with the most likes ( Similar to Stack Overflow). I initially implemented this client side, but it was clunky. So I plan let the server side do the.....heavy lifting. ( Pun intended )
-- [ ] Limit likes/dislikes to one per user. Just like above, I also had this done client side but decided to scrap it and implement it server side soon.
+- [ ] Add one time likes and "Best Answer" label to the comment with the most likes ( Similar to Stack Overflow). I initially implemented these and had them working client side, but it was clunky. So I plan to re-do it server side and let it do the....heavy lifting. ( Pun intended ).
 - [ ] Add ability to upload user photo for the user's profile
-- [ ] Better logo and some small design tweaks to make it prettier.
 - [ ] Add some kind of search/sorting for post ( For example, by bodypart category )
+- [ ] Maybe: Better logo and design tweaks to make it extra pretty.
 - [ ] Maybe: Re-design with React!
 
 
