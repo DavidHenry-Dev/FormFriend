@@ -18,23 +18,15 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://res.cloudinary.com/davidhenrydev/image/upload/c_scale,w_200/v1664851533/FormFriend/cover_npeqnk.png" alt="Logo" width="200 height="100">
   </a>
 
-<h3 align="center">Form-friend</h3>
+<h3 align="center"></h3>
 
   <p align="center">
     A helpful app that let's weightlifters of all experiences upload videos of their form and receive feedback on it from others. As a previously very-overweight guy, fitness has a become one of my passions. A big problem many lifters face, especially novices, is getting proper feedback on form which is absolutely CRUCIAL.
@@ -81,9 +73,16 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+<div align="center">
+    <img src="https://res.cloudinary.com/davidhenrydev/image/upload/v1664852949/FormFriend/Feed_gvovnw.png">
+</div>
+ <div align="center">
+    <img src="https://res.cloudinary.com/davidhenrydev/image/upload/v1664853093/FormFriend/feed2_rtbr8z.png">
+</div>
+  <div align="center">                                                                                                          
+    <img src="https://res.cloudinary.com/davidhenrydev/image/upload/v1664852968/FormFriend/post_ortgs5.png">
+</div>
+                                                                                                        
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -91,10 +90,11 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
+* ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+* ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+* ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+* ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+* ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -121,7 +121,7 @@ A computer, code editor, a free cloudinary account, a free mongo atlas account, 
 # Add these to an .env file
 
 - Create a `.env` file in config folder and add the following as `key = value`
-  - PORT = 2121 (can be any port example: 3000)
+  - PORT = 3000 (can be any port example: 5000)
   - DB_STRING = `your database URI`
   - CLOUD_NAME = `your cloudinary cloud name`
   - API_KEY = `your cloudinary api key`
@@ -134,14 +134,6 @@ A computer, code editor, a free cloudinary account, a free mongo atlas account, 
 `npm start`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
