@@ -5,7 +5,7 @@ module.exports = {
     try {
       await Comment.create({
         comment: req.body.comment,
-        likes: 0,
+        likes: [],
         post: req.params.id,
         user: req.user.id,
       });
@@ -17,12 +17,7 @@ module.exports = {
   },
   likeComment: async (req, res) => {
     try {
-      await Comment.findOneAndUpdate(
-        { _id: req.params.commentid },
-        {
-          $inc: { likes: 1 },
-        }
-      );
+      await Comment.findOneAndUpdate({ _id: req.params.commentid }, { $addToSet: { likes: req.user.id } });
       console.log('Likes +1');
       res.redirect(`/post/${req.params.postid}`);
     } catch (err) {
@@ -34,7 +29,7 @@ module.exports = {
       await Comment.findOneAndUpdate(
         { _id: req.params.commentid },
         {
-          $inc: { likes: -1 },
+          $pull: { likes: req.user.id },
         }
       );
       console.log('Likes -1');

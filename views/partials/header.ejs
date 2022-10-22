@@ -16,9 +16,9 @@
       </div>
 
       <div class="navbar-end">
+        <% if( path != '/' && path != '/signup') { %>
+        <span class="text-md px-2 font-bold"><%= user.userName %></span>
         <img class="mr-2 h-6 w-6 rounded-full sm:h-8 sm:w-8" src="https://img.icons8.com/color/48/000000/test-account.png" alt="" />
-
-        <!-- <h2 class="mr-3 hidden text-center text-3xl"></h2> -->
 
         <div class="dropdown-end dropdown mr-5">
           <label tabindex="0" class="btn btn-ghost btn-circle">
@@ -34,6 +34,10 @@
             <li><a href="/logout" class="text-2xl">Logout</a></li>
           </ul>
         </div>
+        <% } else { %>
+        <span><a href="/" class="px-4 text-xl hover:opacity-80">Login</a></span>
+        <span><a href="/signup" class="px-4 text-xl hover:opacity-80">Signup</a></span>
+        <% } %>
       </div>
     </div>
   </body>

@@ -8,6 +8,7 @@ exports.getLogin = (req, res) => {
   }
   res.render('index.ejs', {
     title: 'Login',
+    path: req.path,
   });
 };
 
@@ -59,6 +60,7 @@ exports.getSignup = (req, res) => {
   }
   res.render('signup', {
     title: 'Create Account',
+    path: req.path,
   });
 };
 
