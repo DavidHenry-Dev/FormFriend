@@ -15,6 +15,16 @@ module.exports = {
       console.log(err);
     }
   },
+  deleteComment: async (req, res) => {
+    try {
+      // let comment = await Post.findById({ _id: req.params.id });
+      await Comment.remove({ _id: req.params.id });
+      console.log('Deleted Post');
+      res.redirect('/profile');
+    } catch (err) {
+      res.redirect(`/post/${req.params.postid}`);
+    }
+  },
   likeComment: async (req, res) => {
     try {
       await Comment.findOneAndUpdate({ _id: req.params.commentid }, { $addToSet: { likes: req.user.id } });

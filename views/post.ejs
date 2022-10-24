@@ -32,18 +32,14 @@
             </form>
           </div> 
           <h4 class="my-5 uppercase tracking-wide text-gray-400 font-bold text-xs">Comments</h4>
-         
+
+          <% let mostLikes = 0 %>
           <% for(var i=0; i<comments.length; i++) {%>
-            <!-- <% let mostLikes = 0 %> -->
           <div class="space-y-6">
             <div class="flex justify-center items-center w-full">
               <div class="mr-3 justify-center">
                 <img class="rounded-full w-8 h-8 sm:w-8 sm:h-8 mb-3" src="https://img.icons8.com/color/48/000000/test-account.png" alt="">
                 <div class='flex flex-col justify-evenly text-center'>
-                  <!-- <% if(mostLikes < comments[i].likes.length ) { %>
-                    <span>BEST ANSWER</span>
-                    <% mostLikes = comments[i].likes.length %>
-                 <% } %> -->
                   <form class="" action="/comment/likeComment/<%=post._id %>/<%=comments[i]._id %>?_method=PUT" method="POST" class="flex justify-end">
                     <button class="" type="submit"><i class="fa-regular fa-thumbs-up fa-lg text-green-700"></i></button>
                   </form>
@@ -54,13 +50,24 @@
                 </div>
               </div>
               <div class="flex-1 bg-gray-100 rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed w-3/4">
+                <% if(comments[i].likes.length > mostLikes) { %>
+                  <span class="text-orange-500 font-semibold flex items-center"><i class="fa-solid fa-dumbbell pr-2"></i>Best Critique</span>
+                <% mostLikes = comments[i].likes.length %>
+             <% } %> 
                 <strong><%=comments[i].user.userName.split("@")[0]%></strong> <span class="text-xs text-gray-400"><%= comments[i].createdAt.toLocaleTimeString() %></span>
                 <p class="w-full text-sm md:text-md lg:text-lg break-words">
                   <%= comments[i].comment %>
                 </p>
               </div>
-
+             
             </div>
+            <% if(comments[i].user.userName == user.userName ){ %>
+              <div class="flex items-center justify-end">
+                <form action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE" method="POST" class="mt-0">
+                  <button class="hover:opacity-50" type="submit">Delete Comment</button>
+                </form>
+              </div>
+              <% } %>
             <% } %>
           </div>
          
