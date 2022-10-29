@@ -5,6 +5,7 @@ module.exports = {
     extend: {},
     colors: {
       accent: '#18182f',
+      subColor: '#161616',
     },
   },
   plugins: [require('daisyui')],
