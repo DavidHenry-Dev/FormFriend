@@ -1,48 +1,48 @@
 <%- include('partials/header') -%>
 
-<div class="lg:p-16">
-  <div class="mt-20 bg-white p-8 shadow">
+<div class="lg:p-16 bg-customMain text-customText">
+  <div class="bg-customSecondary mt-20 p-8 shadow rounded-md">
     <div class="grid grid-cols-1 md:grid-cols-3">
-      <div class="order-last mt-20 grid grid-cols-3 text-center md:order-first md:mt-0">
+      <div class="order-last mt-20 grid grid-cols-2 text-center md:order-first md:mt-0">
         <div>
-          <p class="text-xl font-bold text-gray-700">22</p>
-          <p class="text-gray-400">Likes</p>
-        </div>
-        <div>
-          <p class="text-xl font-bold text-gray-700">2</p>
+          <p class="text-customText text-xl font-bold"><%- posts.length %></p>
           <p class="text-gray-400">Post</p>
         </div>
         <div>
-          <p class="text-xl font-bold text-gray-700">89</p>
+          <% let commentCount = 0 %>
+          <% for(var i=0; i<comments.length; i++) { %>
+            <% if(comments[i].user.userName == user.userName) commentCount ++ %>
+              <% } %>
+          <p class="text-customText text-xl font-bold"><%= commentCount %></p>
           <p class="text-gray-400">Comments</p>
         </div>
       </div>
       <div class="relative">
-        <div class="absolute inset-x-0 top-0 mx-auto -mt-24 flex h-48 w-48 items-center justify-center rounded-full bg-indigo-100 text-indigo-500 shadow-2xl">
+        <div class="bg-indigo-100 text-indigo-500 absolute inset-x-0 top-0 mx-auto -mt-24 flex h-48 w-48 items-center justify-center rounded-full shadow-2xl">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
           </svg>
         </div>
       </div>
       <div class="mt-32 flex justify-between space-x-8 md:mt-0 md:justify-center">
-        <button class="btn btn-primary transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg">
+        <button class="btn bg-customAccent transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg">
           <a href="/feed/">View Feed</a>
         </button>
-        <button class="btn btn-accent transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg">Message</button>
+        <button class="btn bg-customAccent transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg">Message</button>
       </div>
     </div>
 
-    <div class="mt-12 flex items-center justify-center gap-x-20">
+    <div class="mt-12 flex items-center justify-center gap-x-20 text-customText">
       <div class="flex flex-col items-center gap-x-10">
         <h3 class="mt-2 text-center text-2xl font-bold lg:px-16">Upload a video and get some feeback:</h3>
         <form action="/post/createPost" enctype="multipart/form-data" method="POST" class="mt-10 flex flex-col items-center justify-evenly gap-y-10">
           <div class="flex flex-col gap-y-3">
-            <h3 class="text-center text-2xl text-gray-600">Post title:</h3>
-            <input type="text" class="form-control border-2 p-1 text-xl placeholder-gray-400" id="title" name="title" placeholder="Post Title..." />
-            <h3 class="text-center text-2xl text-gray-600">Your video:</h3>
-            <input type="file" class="form-control border-2 p-1 text-xl" id="imageUpload" name="video" />
-            <h3 class="text-center text-2xl text-gray-600">Body part:</h3>
-            <select class="ext-gray-600 border-2 text-center text-2xl" name="liftCategory" id="liftCategory">
+            <h3 class="text-center text-2xl">Post title:</h3>
+            <input type="text" class="bg-customMain border-none placeholder-gray-400 form-control mb-4 border-2 p-1 text-xl text-subColor" id="title" name="title" placeholder="Post Title..." />
+            <h3 class="text-center text-2xl">Your video:</h3>
+            <input type="file" class="bg-customMain border-none form-control mb-4 p-1 text-xl" id="imageUpload" name="video" />
+            <h3 class="text-center text-2xl">Body part:</h3>
+            <select class="bg-customMain border-none mb-4 border-2 text-center text-2xl text-subColor" name="liftCategory" id="liftCategory">
               <option value="Chest">Chest</option>
               <option value="Shoulders">Shoulders</option>
               <option value="Back">Back</option>
@@ -52,18 +52,18 @@
             </select>
           </div>
           <div class="flex flex-col items-center">
-            <textarea class="form-control mb-2 border-2 p-2 text-left text-xl" id="caption" name="caption" placeholder="What do you need help with..." rows="7" cols="25"></textarea>
-            <button type="submit" class="w-50 btn btn-accent transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg" value=" Upload">Submit</button>
+            <textarea class="bg-customMain border-none form-control mb-2 border-2 p-2 text-left text-xl text-subColor" id="caption" name="caption" placeholder="What do you need help with..." rows="7" cols="25"></textarea>
+            <button type="submit" class="w-50 btn bg-customAccent border-none transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg" value=" Upload">Submit</button>
           </div>
         </form>
       </div>
     </div>
   </div>
+  <h3 class="mt-5 text-center text-3xl font-bold lg:px-16">Your Post:</h3>
 </div>
 
-<div class="mx-auto flex flex-col items-center justify-center bg-gray-200 py-6 lg:w-3/5">
-  <h3 class="mb-5 mt-5 text-center text-3xl font-bold lg:px-16">Your Post:</h3>
-  <ul class="m-5 flex flex-col justify-evenly gap-y-5 lg:gap-x-5">
+<div class="mx-auto flex flex-col items-center justify-center py-6">
+  <ul class="flex flex-col justify-evenly gap-y-5 lg:gap-x-5">
     <%- include('partials/post') -%>
   </ul>
 </div>

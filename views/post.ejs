@@ -26,9 +26,9 @@
           <div class="mt-5">
             <form action="/comment/createComment/<%=post._id%>" method="POST" class="flex flex-col items-center justify-evenly">
               <div class="mb-3 w-full">
-                <textarea class="form-control text-xl text-left border-2 mb-2 p-2 w-full" rows="5" placeholder="Comment on <%= post.user.userName.split("@")[0] %>'s post..." name='comment' id="comment" type="text"></textarea>
+                <textarea class="form-control text-xl text-left border-2 mb-2 p-2 w-full text-primary" rows="5" placeholder="Comment on <%= post.user.userName.split("@")[0] %>'s post..." name='comment' id="comment" type="text"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary mb-5">Submit</button>
+              <button type="submit" class="btn bg-violet-400 mb-5 border-none">Submit</button>
             </form>
           </div> 
           <h4 class="my-5 uppercase tracking-wide text-gray-400 font-bold text-xs">Comments</h4>
@@ -51,7 +51,7 @@
               </div>
               <div class="flex-1 bg-gray-100 rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed w-3/4">
                 <% if(comments[i].likes.length > mostLikes) { %>
-                  <span class="text-orange-500 font-semibold flex items-center"><i class="fa-solid fa-dumbbell pr-2"></i>Best Critique</span>
+                  <p class="font-semibold flex items-center text-orange-400"><i class="fa-solid fa-dumbbell pr-2 text-orange-400"></i>Best Critique</p>
                 <% mostLikes = comments[i].likes.length %>
              <% } %> 
                 <strong><%=comments[i].user.userName.split("@")[0]%></strong> <span class="text-xs text-gray-400"><%= comments[i].createdAt.toLocaleTimeString() %></span>

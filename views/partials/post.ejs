@@ -1,41 +1,37 @@
 <% for(var i=0; i<posts.length; i++) {%>
-  <div class="flex items-center justify-center">
-    <div class="bg-white w-[365px] rounded-xl border-none p-5 shadow-md md:w-[600px]">
-      <div class="flex w-full items-center justify-between border-b pb-3">
-        <div class="flex items-center space-x-3">
-          <div class="bg-slate-400 h-8 w-8 rounded-full bg-[url('https://i.pravatar.cc/32')]"></div>
-          <div class="text-md text-slate-700 font-bold"><%= user.userName.split("@")[0] %></div>
+  <div class="flex h-[600px] w-[375px] items-center justify-center bg-customSecondary">
+    <div class="h-full w-full rounded-xl border-none">
+      <div class="mx-0 flex w-full items-center justify-evenly pb-3">
+        <div class="flex items-center">
+          <div class="mr-2 h-8 w-8 rounded-full bg-slate-400 bg-[url('https://i.pravatar.cc/32')]"></div>
+          <div class="text-md font-bold text-customText"><%= user.userName.split("@")[0] %></div>
         </div>
-        <div class="flex items-center space-x-8">
-          <button class="btn-accent mx-2 rounded-2xl border px-5 py-1 text-xs font-semibold"><%= posts[i].liftCategory %></button>
-          <div class="text-neutral-500 text-xs"><%= posts[i].createdAt.toLocaleDateString()%> @ <%= posts[i].createdAt.toLocaleTimeString() %></div>
-        </div>
+
+        <button class="mx-2 rounded-2xl border border-none bg-customAccent px-2 py-1 text-xs font-semibold"><%= posts[i].liftCategory %></button>
+        <div class="text-neutral-500 text-xs"><%= posts[i].createdAt.toLocaleDateString()%> @ <%= posts[i].createdAt.toLocaleTimeString() %></div>
       </div>
-      <div class="flex">
-        <div class="flex flex-col-reverse items-center justify-center">
-          <video controls="controls" name="Video Name" class="w-3/4 md:w-3/5">
-            <source src="<%= posts[i].video%>" />
-          </video>
-          <div class="text-md my-10 w-[300px] break-words font-bold">
-            <h2 class="text-center text-lg"><%= posts[i].title %></h2>
-          </div>
+
+      <div class="flex h-4/5 w-full flex-col items-center justify-end text-center text-customText">
+        <div class="text-md z-50 flex w-full justify-center px-2">
+          <h2 class="bg-black-50 absolute w-80 break-words pt-4 text-lg"><%= posts[i].title %></h2>
         </div>
-      </div>
-      <div>
-        <div class="text-slate-500 mt-5 flex items-center justify-between px-2">
-          <div class="flex space-x-4 md:space-x-8">
-            <div class="hover:text-slate-600 flex cursor-pointer items-center transition">
-              <button class="btn btn-primary mt-2" href=""><a href="/post/<%= posts[i]._id%>">View post</a></button>
-            </div>
+
+        <div class="absolute z-50 mt-5 mb-14 flex w-[375px] justify-between px-3">
+          <div class="z-50 flex cursor-pointer items-start">
+            <a href="/post/<%= posts[i]._id%>" class="text-white">View post</a>
           </div>
           <%if(posts[i].user == user.id){ %>
-          <div class="flex items-center justify-end">
+          <div class="z-50 flex items-center">
             <form action="/post/deletePost/<%= posts[i]._id %>?_method=DELETE" method="POST">
-              <button class="hover:opacity-50" type="submit">Delete Post</button>
+              <button class="hover:opacity-50" type="submit">Delete</button>
             </form>
           </div>
           <% } %>
         </div>
+
+        <video controls="controls" name="Video Name" class="block h-full w-full object-cover brightness-50">
+          <source src="<%= posts[i].video%>" />
+        </video>
       </div>
     </div>
   </div>

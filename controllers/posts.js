@@ -3,19 +3,20 @@ const Post = require('../models/Post');
 const Comment = require('../models/Comment');
 
 module.exports = {
-  getProfile: async (req, res) => {
-    try {
-      const posts = await Post.find({ user: req.user.id });
-      res.render('profile.ejs', { posts: posts, user: req.user, path: req.path });
-    } catch (err) {
-      console.log(err);
-    }
-  },
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: 'desc' }).populate('user');
       const comments = await Comment.find({ post: req.params.id }).sort({ createdAt: 'desc' }).populate('user').lean();
       res.render('feed.ejs', { posts: posts, user: req.user, comments: comments, path: req.path });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  getProfile: async (req, res) => {
+    try {
+      const posts = await Post.find({ user: req.user.id });
+      const comments = await Comment.find({ profile: req.params.id }).sort({ createdAt: 'desc' }).populate('user').lean();
+      res.render('profile.ejs', { posts: posts, user: req.user, path: req.path, comments: comments });
     } catch (err) {
       console.log(err);
     }
