@@ -17,12 +17,12 @@
 <div class="alert alert-info"><%= el.msg %></div>
 <% }) %> <% } %>
 
-<section class="text-white flex min-h-screen items-stretch">
-  <div class="relative hidden w-1/2 items-center bg-cover bg-no-repeat lg:flex" style="background-image: url(https://res.cloudinary.com/davidhenrydev/image/upload/b_rgb:000000,e_auto_contrast,o_65/v1664224866/FormFriend/Barbell1_eyvfdl.jpg)">
+<section class="text-customText flex min-h-screen items-stretch">
+  <div class="relative hidden w-1/2 items-center bg-cover bg-no-repeat lg:flex" style="background-image: url(https://res.cloudinary.com/davidhenrydev/image/upload/v1668379241/FormFriend/pexels-victor-freitas-2261481_urd54h.jpg)">
     <div class="absolute inset-0 z-0 bg-black/25"></div>
-    <div class="z-10 w-full px-24">
-      <h1 class="text-left text-5xl font-bold tracking-wide text-base-100">FormFriend</h1>
-      <p class="my-4 text-3xl text-base-100">Get form feedback on your lifts by the fitness community. Anytime, anywhere.</p>
+    <div class="flex flex-col justify-start mx-auto z-10 w-full h-screen px-10 text-center">
+      <img src="https://res.cloudinary.com/davidhenrydev/image/upload/c_scale,w_345/v1668379983/FormFriend/FFvector_vjnm8m.png" alt="" class="mx-auto mt-48">
+      <p class="mt-14 text-3xl text-customSecondary">Get form feedback on your lifts by the fitness community. Anytime, anywhere.</p>
     </div>
     <div class="absolute bottom-0 right-0 left-0 flex justify-center space-x-4 p-4 text-center">
       <span>
@@ -36,27 +36,30 @@
       </span>
     </div>
   </div>
-  <div class="z-0 flex w-full items-end justify-start px-0 text-center md:px-16 lg:w-1/2 bg-customMain">
+  <div class="z-0 flex w-full items-start justify-start px-0 text-center md:px-16 lg:w-1/2 bg-customText">
     <div class="bg-gray-500 absolute inset-0 z-10 items-center bg-cover bg-no-repeat lg:hidden" style="background-image: url(https://res.cloudinary.com/davidhenrydev/image/upload/b_rgb:000000,e_auto_contrast,o_65/v1664224866/FormFriend/Barbell1_eyvfdl.jpg)">
-      <div class="bg-black absolute inset-0 z-0"></div>
+      <div class="bg-customText absolute inset-0 z-0"></div>
       <h1 class="my-6 text-3xl text-base-100">FormFriend</h1>
     </div>
     <div class="z-20 w-full h-3/4 py-6 flex flex-col gap-y-20">
-      <div class="space-x-2 my-">
-       <h2 class="text-base-100 text-2xl">Get form feedback on your lifts by the fitness community. Anytime, anywhere.</h2>
+      <div class="space-x-2 px-2 h-[350px] lg:hidden">
+        <img src="https://res.cloudinary.com/davidhenrydev/image/upload/c_scale,w_386/v1668370920/FormFriend/default_mzaczp.png" alt="" class="mx-auto mb-5 h-3/5">
+       <h2 class="text-customSecondary text-3xl text-center">Get form feedback on your lifts by the fitness community. Anytime, anywhere.</h2>
       </div>
+      
       <form action="/" method="POST" class="mx-auto w-full px-4 sm:w-2/3 lg:px-0">
+        <h1 class="text-customSecondary text-4xl lg:mt-48 border-b pb-5 mb-10 w-3/5 mx-auto">Login now</h1>
         <div class="pb-2 pt-4">
-          <input type="email" name="email" id="email" placeholder="Email" class="bg-black block w-full rounded-sm p-4 text-lg" />
+          <input type="email" name="email" id="email" placeholder="Email" class="bg-customMain block w-full rounded-sm p-4 text-lg" />
         </div>
         <div class="pb-2 pt-4">
-          <input class="bg-black block w-full rounded-sm p-4 text-lg" type="password" name="password" id="password" placeholder="Password" />
+          <input class="bg-customMain block w-full rounded-sm p-4 text-lg" type="password" name="password" id="password" placeholder="Password" />
         </div>
         <div class="text-gray-400 hover:text-gray-100 text-right hover:underline">
           <a href="/signup" class="text-base-100">Don't have an account? Sign up!</a>
         </div>
         <div class="px-4 pb-2 pt-4">
-          <button class="bg-customAccent hover:bg-amber-700 block w-full rounded-full p-4 text-lg uppercase focus:outline-none">sign in</button>
+          <button class="bg-customAccent hover:bg-amber-700 text-customSecondary block w-full rounded-full p-4 text-lg uppercase focus:outline-none">sign in</button>
         </div>
 
         <div class="right-0 left-0 mt-16 flex justify-center space-x-4 p-4 text-center lg:hidden">

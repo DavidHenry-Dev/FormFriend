@@ -10,8 +10,8 @@
   </head>
 
   <body class="">
-<main class="hero min-h-screen bg-base-200 bg-[url(https://res.cloudinary.com/davidhenrydev/image/upload/b_rgb:000000,e_auto_contrast,o_65/v1664224866/FormFriend/Barbell1_eyvfdl.jpg)] bg-hero bg-no-repeat bg-cover bg-center bg-fixed">
-  <div class="row justify-content-center">
+<main class="hero min-h-screen bg-base-200 bg-[url(https://res.cloudinary.com/davidhenrydev/image/upload/v1668379241/FormFriend/pexels-victor-freitas-2261481_urd54h.jpg)] bg-hero bg-no-repeat bg-cover bg-center bg-fixed">
+  <div class="row justify-content-center items-center">
     <section class="col-6 mt-5">
       <% if (locals.messages.errors) { %>
       <% messages.errors.forEach( el => { %>
@@ -23,20 +23,18 @@
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %>
       <% } %>
-      <h1 class="my-6 text-3xl text-base-100 text-center">FormFriend</h1>
+     
       <div class="bg-grey-lighter min-h-screen flex flex-col">
-        <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-          <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+        <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-evenly px-2">
+          <img src="https://res.cloudinary.com/davidhenrydev/image/upload/c_scale,w_345/v1668379983/FormFriend/FFvector_vjnm8m.png" alt="" class=" mx-auto">
+          <div class="bg-customText px-6 py-8 rounded shadow-md text-black w-full">
             <h1 class="mb-8 text-3xl text-center text-base-100">Sign up</h1>
             <form action="/signup" method="POST">
-              <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4 form-label" name="userName" placeholder="User Name" />
-
-              <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4 form-label" name="email" placeholder="Email" />
-
-              <input type="password" class="block border border-grey-light w-full p-3 rounded mb-4 form-label" name="password" placeholder="Password" />
-              <input type="password" class="block border border-grey-light w-full p-3 rounded mb-4 form-label" name="confirmPassword" placeholder="Confirm Password" />
-
-              <button type="submit" class="w-full text-center py-3 rounded btn btn-primary text-white hover:bg-green-dark focus:outline-none my-1">Create Account</button>
+              <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4 form-label bg-customMain" name="userName" placeholder="User Name" />
+              <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4 form-label bg-customMain" name="email" placeholder="Email" />
+              <input type="password" class="block border border-grey-light w-full p-3 rounded mb-4 form-labe bg-customMain" name="password" placeholder="Password" />
+              <input type="password" class="block border border-grey-light w-full p-3 rounded mb-4 form-label bg-customMain" name="confirmPassword" placeholder="Confirm Password" />
+              <button type="submit" class="w-full text-center py-3 rounded btn bg-customAccent text-customSecondary hover:bg-green-dark focus:outline-none my-1">Create Account</button>
             </form>
             <div class="text-center text-sm text-base-100 mt-4">
               By signing up, you agree to the
@@ -57,8 +55,7 @@
           </div>
         </div>
       </div>
-
-      </form> -->
+      </form> 
     </section>
   </div>
 </main>

@@ -4,10 +4,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        customMain: '#1b1a21',
-        customSecondary: '#2f2c3b',
-        customAccent: '#fb6750',
-        customText: '#c8c7ce',
+        customMain: '#e8eced',
+        customSecondary: '#f6f8f8',
+        customThird: '#e8eced',
+        customButton: '#1a2024',
+        customAccent: '#e2836b',
+        customAccent2: '#804436',
+        customText: '#1a2024',
       },
     },
   },
