@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         customMain: '#e8eced',
         customSecondary: '#f6f8f8',
-        customThird: '#e8eced',
+        customThird: '#9b9b9e',
         customButton: '#1a2024',
         customAccent: '#e2836b',
         customAccent2: '#804436',
