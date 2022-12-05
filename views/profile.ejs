@@ -27,7 +27,7 @@
         <button class="btn bg-customButton transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg">
           <a href="/feed/">View Feed</a>
         </button>
-        <button class="btn bg-customButton transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg">Message</button>
+        <button class="btn bg-customButton transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg" id="goToPost">View Posts</button>
       </div>
     </div>
 
@@ -60,9 +60,10 @@
 </div>
 
 <div class="mx-auto flex flex-col items-center py-5 px-2">
-  <h3 class="text-center text-3xl text-customText lg:px-16 mb-5 border-b-2">Your Post</h3>
+  <h3 class="text-center text-3xl text-customText lg:px-16 mb-5 border-b-2" id="viewPost">Your Post</h3>
   <ul class="flex flex-col gap-y-8 w-full">
     <%- include('partials/post') -%>
   </ul>
 </div>
+
 <%- include('partials/footer') -%>
