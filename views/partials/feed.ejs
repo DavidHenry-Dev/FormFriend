@@ -6,7 +6,8 @@
       </video>
       <div class="container flex flex-col justify-start gap-y-3 p-6">
         <h5 class="mb-2 text-xl font-semibold text-gray-900"><%= posts[i].title %></h5>
-        <p class="mb-4 text-base text-gray-700"><%= posts[i].caption%></p>
+        <!-- <p class="mb-4 text-base text-gray-700"><%= posts[i].caption%></p>
+         -->
         <p class="text-s text-gray-600"><span class="font-semibold">Posted:</span> <%= posts[i].createdAt.toLocaleDateString()%> @ <%= posts[i].createdAt.toLocaleTimeString() %></p>
         <p class="text-s text-gray-600"><span class="font-semibold">By:</span> <%= posts[i].user.userName.split("@")[0] %></p>
         <p class="text-s text-gray-600"><span class="font-semibold">Category:</span> <%= posts[i].liftCategory %></p>

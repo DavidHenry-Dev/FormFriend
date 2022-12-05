@@ -1,13 +1,13 @@
 <%- include('partials/header') -%>
 
-<div class="lg:p-16 bg-customMain text-customText p-2 mt-5">
+<div class="bg-customMain text-customText mt-5">
     <div class="grid grid-cols-1 md:grid-cols-3 items-center">
       <div class="order-last mt-20 grid grid-cols-2 text-center md:order-first md:mt-0">
         <div>
           <p class="text-customText text-2xl font-bold"><%- posts.length %></p>
           <p class="text-gray-400 text-2xl">Post</p>
         </div>
-        <div>
+        <div class="mx-auto">
           <% let commentCount = 0 %>
           <% for(var i=0; i<comments.length; i++) { %>
             <% if(comments[i].user.userName == user.userName) commentCount ++ %>
@@ -16,7 +16,7 @@
           <p class="text-gray-400 text-2xl">Comments</p>
         </div>
       </div>
-      <div class="relative">
+      <div class="relative mt-12">
         <div class="bg-customSecondary text-customAccent inset-x-0 top-0 mx-auto flex h-48 w-48 items-center justify-center rounded-full shadow-2xl">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
@@ -31,11 +31,11 @@
       </div>
     </div>
 
-    <div class="mt-16 flex items-center justify-center gap-x-20 text-customText py-3">
-      <div class="flex flex-col items-center bg-customSecondary rounded-2xl shadow-md p-3 py-5">
+    <div class="mt-16 mx-auto md:w-3/4 text-customText py-3">
+      <div class="flex flex-col items-center bg-customSecondary rounded-2xl shadow-md py-5">
         <h3 class="mt-2 text-center text-2xl font-bold lg:px-16">Upload a video and get some feeback:</h3>
-        <form action="/post/createPost" enctype="multipart/form-data" method="POST" class="mt-10 flex flex-col items-center justify-evenly gap-y-10">
-          <div class="flex flex-col gap-y-3">
+        <form action="/post/createPost" enctype="multipart/form-data" method="POST" class="container mt-10 flex flex-col items-center justify-evenly md:w-3/4 gap-y-10 px-4">
+          <div class="flex flex-col gap-y-3 w-full">
             <h3 class="text-center text-2xl">Post title:</h3>
             <input type="text" class="bg-customMain border-none placeholder-gray-400 form-control mb-4 border-2 p-1 text-xl text-subColor" id="title" name="title" placeholder="Post Title..." />
             <h3 class="text-center text-2xl">Your video:</h3>
@@ -51,12 +51,12 @@
             </select>
           </div>
           <div class="flex flex-col items-center">
-            <textarea class="bg-customMain border-none form-control mb-2 border-2 p-2 text-left text-xl text-subColor" id="caption" name="caption" placeholder="What do you need help with..." rows="7" cols="25"></textarea>
+            <textarea class="w-full bg-customMain border-none form-control mb-2 border-2 p-2 text-left text-xl text-subColor" id="caption" name="caption" placeholder="What do you need help with..." rows="10" cols="60"></textarea>
             <button type="submit" class="w-50 btn bg-customButton border-none transform rounded py-2 px-4 font-medium uppercase shadow transition hover:-translate-y-0.5 hover:shadow-lg" value=" Upload">Submit</button>
           </div>
         </form>
       </div>
-    </div>
+    <!-- </div> -->
 </div>
 
 <div class="mx-auto flex flex-col items-center py-5 px-2">
