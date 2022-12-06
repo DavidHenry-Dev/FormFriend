@@ -23,7 +23,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="https://res.cloudinary.com/davidhenrydev/image/upload/c_scale,w_200/v1664851533/FormFriend/cover_npeqnk.png" alt="Logo" width="200 height="100">
+    <img src="https://res.cloudinary.com/davidhenrydev/image/upload/v1670349229/FormFriend/Formfriend_ypa9o1.png" alt="Logo" width="650 height="600">
   </a>
 
 <h3 align="center"></h3>
@@ -141,11 +141,10 @@ A computer, code editor, a free cloudinary account, a free mongo atlas account, 
 <!-- ROADMAP AND OPTIMIZATIONS -->
 ## Roadmap and Optimizations
 
-- [ ] Add one time likes and "Best Answer" label to the comment with the most likes ( Similar to Stack Overflow). I initially implemented these and had them working client side, but it was clunky. So I plan to re-do it server side and let it do the....heavy lifting. ( Pun intended ).
 - [ ] Add ability to upload user photo for the user's profile
 - [ ] Add some kind of search/sorting for post ( For example, by bodypart category )
-- [ ] Maybe: Better logo and design tweaks to make it extra pretty.
-- [ ] Maybe: Re-design with React!
+- [ ] Add one or two minor interactivity niceties, such a a return to top button, etc etc
+- [ ] Replace EJS with React? We shall see!
 
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
