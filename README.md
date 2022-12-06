@@ -29,7 +29,7 @@
 <h3 align="center"></h3>
 
   <p align="center">
-    A helpful app that let's weightlifters of all experiences upload videos of their form and receive feedback on it from others. As a previously very-overweight guy, fitness has a become one of my passions. A big problem many lifters face, especially novices, is getting proper feedback on form which is absolutely CRUCIAL.
+    A Full Stack app that let's weightlifters of all experiences upload videos of their form and receive feedback on it from others. As a previously very-overweight guy, fitness has a become one of my passions. A big problem many lifters face, especially novices, is getting proper feedback on form which is absolutely CRUCIAL.
     <br />
     <br />
     <a href="https://github.com/github_username/repo_name">View Demo</a>
