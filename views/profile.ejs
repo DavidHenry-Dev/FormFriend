@@ -3,11 +3,11 @@
 <div class="bg-customMain text-customText mt-5">
     <div class="grid grid-cols-1 md:grid-cols-3 items-center">
       <div class="order-last mt-20 grid grid-cols-2 text-center md:order-first md:mt-0">
-        <div>
+        <div class="text-center">
           <p class="text-customText text-2xl font-bold"><%- posts.length %></p>
           <p class="text-gray-400 text-2xl">Post</p>
         </div>
-        <div class="mx-auto">
+        <div class="text-center">
           <% let commentCount = 0 %>
           <% for(var i=0; i<comments.length; i++) { %>
             <% if(comments[i].user.userName == user.userName) commentCount ++ %>
@@ -56,14 +56,12 @@
           </div>
         </form>
       </div>
-    <!-- </div> -->
+    </div>
 </div>
 
-<div class="mx-auto flex flex-col items-center py-5 px-2">
-  <h3 class="text-center text-3xl text-customText lg:px-16 mb-5 border-b-2" id="viewPost">Your Post</h3>
-  <ul class="flex flex-col gap-y-8 w-full">
-    <%- include('partials/post') -%>
-  </ul>
+<div class="container mx-auto flex flex-col justify-start items-center">
+  <h3 class="text-center text-3xl text-customText lg:px-16 mb-5 border-b-2 mt-10" id="viewPost">Your Post</h3>
+  <%- include('partials/post') -%>
 </div>
 
 <%- include('partials/footer') -%>

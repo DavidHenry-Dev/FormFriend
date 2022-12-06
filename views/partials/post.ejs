@@ -1,12 +1,11 @@
 <% for(var i=0; i<posts.length; i++) {%>
-  <div class="flex justify-center">
-    <div class="flex flex-col bg-customSecondary shadow-md sm:max-w-xl sm:flex-row">
-      <video controls="controls" name="Video Name" class="block h-full w-full object-cover shadow-md brightness-75">
+  <div class="flex flex-col items-center rounded-lg">
+    <div class="flex flex-col border-2 bg-customSecondary shadow-sm sm:max-w-xl sm:flex-row mt-10 mb-10">
+      <video controls="controls" name="Video Name" class="block h-full w-9/10 aspect-square sm:max-w-xs object-cover shadow-md brightness-75">
         <source src="<%= posts[i].video%>" />
       </video>
       <div class="container flex flex-col justify-start gap-y-3 p-6">
         <h5 class="mb-2 text-xl font-semibold text-gray-900"><%= posts[i].title %></h5>
-        <p class="mb-4 text-base text-gray-700"><%= posts[i].caption%></p>
         <p class="text-s text-gray-600"><span class="font-semibold">Posted:</span> <%= posts[i].createdAt.toLocaleDateString()%> @ <%= posts[i].createdAt.toLocaleTimeString() %></p>
         <p class="text-s text-gray-600"><span class="font-semibold">By:</span> <%= user.userName.split("@")[0] %></p>
         <p class="text-s text-gray-600"><span class="font-semibold">Category:</span> <%= posts[i].liftCategory %></p>
@@ -16,11 +15,12 @@
               <a href="/post/<%= posts[i]._id%>" class="cursor-pointer text-customMain hover:opacity-50">View post <i class="fa-solid fa-chevron-right ml-2 text-customAccent"></i></a>
             </button>
             <%if(posts[i].user == user.id){ %>
-            <form action="/post/deletePost/<%= posts[i]._id %>?_method=DELETE" method="POST">
-              <button class="cursor-pointer hover:opacity-50" type="submit"><i class="fa-solid fa-trash-can"></i></button>
-            </form>
+              <form action="/post/deletePost/<%= posts[i]._id %>?_method=DELETE" method="POST">
+                <button class="cursor-pointer hover:opacity-50" type="submit"><i class="fa-solid fa-trash-can"></i></button>
+              </form>
+            </div>
+            <% } %>
           </div>
-          <% } %>
         </div>
       </div>
     </div>
