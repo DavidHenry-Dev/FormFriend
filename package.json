@@ -4,7 +4,7 @@
   "description": "User based form help & critique app",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "dev": "npx tailwindcss -i ./public/style.css -o ./public/output.css --watch",
     "watch": "concurrently --kill-others \"npm run start\" \"npm run dev\"",
     "test": "echo \"Error: no test specified\" && exit 1"
