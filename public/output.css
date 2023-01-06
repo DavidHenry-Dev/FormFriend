@@ -2898,6 +2898,10 @@ html {
   display: none;
 }
 
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
 .h-full {
   height: 100%;
 }
@@ -2946,6 +2950,10 @@ html {
   width: 100%;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -2956,10 +2964,6 @@ html {
 
 .w-52 {
   width: 13rem;
-}
-
-.w-1\/2 {
-  width: 50%;
 }
 
 .w-3\/5 {
@@ -3052,10 +3056,6 @@ html {
 
 .justify-between {
   justify-content: space-between;
-}
-
-.justify-around {
-  justify-content: space-around;
 }
 
 .justify-evenly {
@@ -3206,11 +3206,6 @@ html {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-customThird {
-  --tw-bg-opacity: 1;
-  background-color: rgb(155 155 158 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(https\:\/\/res\.cloudinary\.com\/davidhenrydev\/image\/upload\/v1668379241\/FormFriend\/pexels-victor-freitas-2261481_urd54h\.jpg\)\] {
@@ -3541,12 +3536,6 @@ html {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-inner {
-  --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
-  --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
@@ -3616,8 +3605,16 @@ html {
 }
 
 @media (min-width: 640px) {
+  .sm\:h-1\/2 {
+    height: 50%;
+  }
+
   .sm\:h-8 {
     height: 2rem;
+  }
+
+  .sm\:w-3\/4 {
+    width: 75%;
   }
 
   .sm\:w-2\/3 {
