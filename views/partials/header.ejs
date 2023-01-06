@@ -10,6 +10,7 @@
   </head>
 
   <body class="bg-customMain">
+    <!-- NAVBAR -->
     <div class="navbar h-24 bg-customButton shadow-lg">
       <div class="navbar-start">
         <a href="#"><img src="https://res.cloudinary.com/davidhenrydev/image/upload/c_scale,w_223/v1668369811/FormFriend/FFlogo_kdubf7.png" class="h-8 pl-2 md:h-12" alt="" /></a>
@@ -17,14 +18,14 @@
 
       <div class="navbar-end">
         <% if( path != '/' && path != '/signup') { %>
-        <span class="text-md px-2 font-bold"><%= user.userName %></span>
+        <!-- <span class="text-md px-2 font-bold"><%= user.userName %></span> -->
         <div class="flex h-10 w-10 items-center justify-evenly rounded-full bg-customSecondary text-customAccent">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
           </svg>
         </div>
-
-        <div class="dropdown-end dropdown pr-2">
+        <!-- DROPDOWN MENU -->
+        <div class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-ghost btn-circle">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 stroke-customAccent" fill="none" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />

@@ -4,7 +4,7 @@
   "description": "User based form help & critique app",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "dev": "npx tailwindcss -i ./public/style.css -o ./public/output.css --watch",
     "watch": "concurrently --kill-others \"npm run start\" \"npm run dev\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +14,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.25.1",
+    "concurrently": "^7.5.0",
     "connect-mongo": "^3.2.0",
     "daisyui": "^2.31.0",
     "dotenv": "^8.2.0",
@@ -39,5 +40,13 @@
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "tailwindcss": "^3.1.8"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidHenry-Dev/FormFriend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DavidHenry-Dev/FormFriend/issues"
+  },
+  "homepage": "https://github.com/DavidHenry-Dev/FormFriend#readme"
 }
