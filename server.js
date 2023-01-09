@@ -12,7 +12,7 @@ const mainRoutes = require('./routes/main');
 const postRoutes = require('./routes/posts');
 const commentRoutes = require('./routes/comment');
 const path = require('path');
-const PORT = 3000
+
 
 //Use .env file in config folder
 require('dotenv').config({ path: './config/.env' });
@@ -21,6 +21,7 @@ require('dotenv').config({ path: './config/.env' });
 require('./config/passport')(passport);
 
 //Connect To Database
+const PORT = process.env.PORT ||3000;
 connectDB().then(() => {
   app.listen(PORT, () => {
       console.log("listening for requests");
