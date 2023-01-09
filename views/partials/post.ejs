@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center rounded-lg">
     <div class="flex flex-col border-2 bg-customSecondary shadow-sm sm:max-w-xl sm:flex-row mt-10 mb-10">
       <video controls="controls" autoplay loop muted name="Video Name" preload="metadata" playsinline class="block h-full w-9/10 aspect-square sm:max-w-xs object-cover shadow-md brightness-75">
-        <source src="<%= posts[i].video%>${#t=0.1}" type="video/mp4" />
+        <source src="<%= posts[i].video%>" type="video/mp4" />
       </video>
       <div class="container flex flex-col justify-start gap-y-3 p-6">
         <h5 class="mb-2 text-xl font-semibold text-gray-900"><%= posts[i].title %></h5>
