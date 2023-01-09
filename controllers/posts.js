@@ -40,6 +40,7 @@ module.exports = {
       // Upload image to cloudinary
       const upload = await cloudinary.uploader.upload_large(req.file.path, {
         resource_type: 'video',
+        chunk_size: 6000000,
       });
 
       await Post.create({
