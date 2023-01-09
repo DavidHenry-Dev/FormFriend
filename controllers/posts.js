@@ -39,7 +39,7 @@ module.exports = {
     try {
       // Upload image to cloudinary
       const upload = await cloudinary.uploader.upload_large(req.file.path, {
-        resource_type: 'video',
+        resource_type: 'auto',
       });
 
       await Post.create({
