@@ -69,6 +69,6 @@ app.use('/comment', commentRoutes);
 
 
 //Server Running
-app.listen(PORT, () => {
-  console.log('Server is running, you better catch it!');
-});
+// app.listen(PORT, () => {
+//   console.log('Server is running, you better catch it!');
+// });
