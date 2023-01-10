@@ -39,7 +39,7 @@ module.exports = {
     try {
       // Upload image to cloudinary
       const upload = await cloudinary.uploader.upload_large(req.file.path, {
-        resource_type: 'auto',
+        resource_type: 'auto', eager_async: true, chunk_size: 6000000
       });
 
       await Post.create({
