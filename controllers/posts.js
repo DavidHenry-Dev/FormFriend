@@ -1,4 +1,5 @@
-const cloudinary = require('../middleware/cloudinary');
+// const cloudinary = require('../middleware/cloudinary');
+import { v2 as cloudinary } from 'cloudinary'
 const Post = require('../models/Post');
 const Comment = require('../models/Comment');
 
@@ -38,7 +39,7 @@ module.exports = {
   createPost: async (req, res) => {
     try {
       // Upload image to cloudinary
-      const upload = await cloudinary.v2.uploader.upload(req.file.path, {
+      const upload = await cloudinary.uploader.upload(req.file.path, {
         resource_type: 'video', 
         async: true
       });
