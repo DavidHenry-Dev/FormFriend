@@ -38,7 +38,7 @@ module.exports = {
   createPost: async (req, res) => {
     try {
       // Upload image to cloudinary
-      const upload = await cloudinary.uploader.upload_large(req.file.path, {
+      const upload = await cloudinary.uploader.upload(req.file.path, {
         resource_type: 'auto', 
       });
 
