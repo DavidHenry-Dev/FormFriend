@@ -11,10 +11,6 @@ module.exports = multer({
       return;
     }
   },
-  limits: {
-    fieldSize: '50mb'
- },
- chunk_size: 6000000
 });
 
 // module.exports = multer({
