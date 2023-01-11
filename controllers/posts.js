@@ -43,7 +43,7 @@ module.exports = {
         resource_type: 'video', 
         folder: 'FormFriend/vidUploads',
         format: 'mp4',
-        chunk_size: 3000000,
+        chunk_size: 5000000,
       });
 
       await Post.create({
