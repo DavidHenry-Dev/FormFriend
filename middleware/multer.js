@@ -5,8 +5,9 @@ const storage = multer.memoryStorage();
 module.exports = multer({
   storage: storage,
   limits: {
-    fieldSize: 20 * 1024 * 1024,
+    fieldSize: 50 * 1024 * 1024,
   },
+  fileSize: 52428800,
   fileFilter: (req, file, cb) => {
     if (file.mimetype === 'video/mp4' || file.mimetype === 'video/quicktime') {
       cb(null, true);
