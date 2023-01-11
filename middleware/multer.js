@@ -2,7 +2,7 @@ const multer = require('multer');
 const path = require('path');
 
 module.exports = multer({
-  storage: multer.memoryStorage(),
+  storage: multer.diskStorage({}),
   fieldSize: 50 * 1024 * 1024,
   fileSize: 52428800,
   fileFilter: (req, file, cb) => {
