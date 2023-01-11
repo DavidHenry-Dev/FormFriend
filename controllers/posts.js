@@ -37,7 +37,13 @@ module.exports = {
     }
   },
   createPost: async (req, res) => {
+    // Upload image to cloudinary
     try {
+      const upload = await cloudinary.uploader.upload(req.file.path, {
+        resource_type: 'video', 
+        folder: 'FormFriend/vidUploads',
+        format: 'mp4',
+      });
       await Post.create({
         title: req.body.title,
         video: upload.secure_url,
@@ -46,13 +52,6 @@ module.exports = {
         likes: 0,
         liftCategory: req.body.liftCategory,
         user: req.user.id,
-      });
-      // Upload image to cloudinary
-      const upload = await cloudinary.uploader.upload(req.file.path, {
-        resource_type: 'video', 
-        folder: 'FormFriend/vidUploads',
-        format: 'mp4',
-      
       });
       console.log('Post has been added!');
       res.redirect('/profile');
