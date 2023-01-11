@@ -42,7 +42,7 @@ module.exports = {
       const upload = await cloudinary.uploader.upload(req.file.path, {
         resource_type: 'video', 
         folder: 'FormFriend/vidUploads',
-        fetch_format: 'auto:eco'
+        quality: 40,
       });
 
       await Post.create({
