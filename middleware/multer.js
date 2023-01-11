@@ -1,6 +1,6 @@
 const multer = require('multer');
 const storage = multer.memoryStorage();
-// const path = require('path');
+const path = require('path');
 
 module.exports = multer({
   storage: storage,
