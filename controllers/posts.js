@@ -41,7 +41,7 @@ module.exports = {
       // Upload image to cloudinary
       const upload = await cloudinary.uploader.upload(req.file.path, {
         resource_type: 'video', 
-        folder: '/vidUploads',
+        folder: 'FormFriend/vidUploads',
       });
 
       await Post.create({
