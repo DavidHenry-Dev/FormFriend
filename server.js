@@ -21,7 +21,7 @@ require('dotenv').config({ path: './config/.env' });
 require('./config/passport')(passport);
 
 //Connect To Database
-const PORT = process.env.PORT ||4000;
+const PORT = process.env.PORT || 4000;
 connectDB().then(() => {
   app.listen(PORT, () => {
       console.log("listening for requests");

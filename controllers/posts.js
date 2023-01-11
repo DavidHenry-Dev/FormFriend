@@ -40,7 +40,6 @@ module.exports = {
       // Upload image to cloudinary
       const upload = await cloudinary.uploader.upload(req.file.path, {
         resource_type: 'video', 
-        async: true
       });
 
       await Post.create({
