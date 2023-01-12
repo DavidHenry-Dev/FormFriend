@@ -1,5 +1,6 @@
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
 
 module.exports = multer({
   storage: multer.diskStorage({}),
@@ -8,8 +9,9 @@ module.exports = multer({
     fileSize: 15000000,
   },
   fileFilter: (req, file, cb) => {
-
-    if (file.size > 1000000) {
+    const stats = fs.statSync(file);
+    const fileSizeInBytes = stats.size;
+    if (fileSizeInBytes > 15*1024*1024) {
       return cb(new Error('File size should be less than 15MB'));
     }
     cb(null, true);
