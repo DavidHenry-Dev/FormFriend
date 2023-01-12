@@ -4,8 +4,8 @@ const path = require('path');
 module.exports = multer({
   storage: multer.diskStorage({}),
   limits: {
-    fieldSize: 50 * 1024 * 1024,
-    fileSize: maxSize,
+    fieldSize: 18 * 1024 * 1024,
+    fileSize: 18874368,
   },
   fileFilter: (req, file, cb) => {
     if (file.mimetype === 'video/mp4' || file.mimetype === 'video/quicktime') {
