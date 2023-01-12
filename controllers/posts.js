@@ -43,8 +43,8 @@ module.exports = {
         resource_type: 'video', 
         folder: 'FormFriend/vidUploads',
         format: 'mp4',
-        video_codec: 'h264',
-        quality: 'auto:eco'
+        // video_codec: 'h264',
+        // quality: 'auto:eco'
       });
       await Post.create({
         title: req.body.title,
