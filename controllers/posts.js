@@ -2,6 +2,7 @@ const cloudinary = require('../middleware/cloudinary');
 const Post = require('../models/Post');
 const Comment = require('../models/Comment');
 const path = require("path");
+const fs = require('fs');
 
 module.exports = {
   getFeed: async (req, res) => {
@@ -37,6 +38,8 @@ module.exports = {
     }
   },
   createPost: async (req, res) => {
+    const stats = fs.statSync(req.file.path);
+    const fileSizeInBytes = stats.size;
     // Upload image to cloudinary
     try {
       const upload = await cloudinary.uploader.upload(req.file.path, {
@@ -55,6 +58,13 @@ module.exports = {
         liftCategory: req.body.liftCategory,
         user: req.user.id,
       });
+
+
+if(fileSizeInBytes > 15*1024*1024){ //15MB
+alert("Sorry, video must be 15mb or less")
+}else{
+console.log("File size is under 6MB")
+}
       console.log('Post has been added!');
       res.redirect('/profile');
     } catch (err) {
