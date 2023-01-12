@@ -37,11 +37,6 @@ module.exports = {
     }
   },
   createPost: async (req, res) => {
-
-    if (!req.file) {
-      res.status(400).send('File is too large or no file was uploaded.')
-      return
-    }
     // Upload image to cloudinary
     try {
       const upload = await cloudinary.uploader.upload(req.file.path, {
