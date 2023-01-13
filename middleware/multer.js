@@ -3,7 +3,7 @@ const cloudinary = require('cloudinary').v2;
 const {CloudinaryStorage} = require('multer-storage-cloudinary');
 require('dotenv').config({ path: './config/.env' });
 
-multer = new CloudinaryStorage({
+const storage =  new CloudinaryStorage({
   cloudinary: cloudinary,
   params: ({  
     folder: 'FormFriend/vidUploads',
@@ -16,7 +16,7 @@ multer = new CloudinaryStorage({
 
 
 
-module.exports = multer
+module.exports = storage
 // module.exports = multer({
 //   storage: multer.diskStorage({}),
 //   fileFilter: (req, file, cb) => {
