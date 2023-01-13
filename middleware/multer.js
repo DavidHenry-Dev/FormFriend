@@ -5,7 +5,7 @@ require('dotenv').config({ path: './config/.env' });
 
 
 const storage = new CloudinaryStorage({
-    cloudinary: cloudinary.v2,
+    cloudinary: cloudinary,
     folder: 'FormFriend/vidUploads',
     allowedFormats: ['mp4', 'MOV'],
     filename: function (req, file, cb) {
