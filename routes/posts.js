@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const postsController = require('../controllers/posts');
-const { ensureAuth, ensureGuest } = require('../middleware/auth');\
+const { ensureAuth, ensureGuest } = require('../middleware/auth');
 const multer = require('../middleware/multer');
 const parser = multer({ storage: storage });
 
