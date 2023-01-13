@@ -45,7 +45,7 @@ module.exports = {
         video_codec: 'h264',
         quality: 'auto:eco'
       });
-      await Post.create({
+      const post = await Post.create({
         title: req.body.title,
         video: uploadedFile.secure_url,
         cloudinaryId: uploadedFile.public_id,
@@ -55,6 +55,7 @@ module.exports = {
         user: req.user.id,
       });
       console.log('Post has been added!');
+      res.send(post);
       res.redirect('/profile');
     } catch (err) {
       console.log(JSON.stringify(err));
