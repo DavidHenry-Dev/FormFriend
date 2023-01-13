@@ -39,7 +39,7 @@ module.exports = {
   createPost: async (req, res) => {
     // Upload image to cloudinary
     try {
-      const upload = await cloudinary.uploader.upload(req.files[0].path, {
+      const uploadedFile = await cloudinary.uploader.upload(req.files[0].path, {
         resource_type: 'video', 
         format: 'mp4',
         video_codec: 'h264',
@@ -47,8 +47,8 @@ module.exports = {
       });
       await Post.create({
         title: req.body.title,
-        video: upload.secure_url,
-        cloudinaryId: upload.public_id,
+        video: uploadedFile.secure_url,
+        cloudinaryId: uploadedFile.public_id,
         caption: req.body.caption,
         likes: 0,
         liftCategory: req.body.liftCategory,
@@ -61,20 +61,7 @@ module.exports = {
     }
     console.log(req.files[0].path);
   },
-  // likePost: async (req, res) => {
-  //   try {
-  //     await Post.findOneAndUpdate(
-  //       { _id: req.params.id },
-  //       {
-  //         $inc: { likes: 1 },
-  //       }
-  //     );
-  //     console.log('Likes +1');
-  //     res.redirect(`/post/${req.params.id}`);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // },
+
   deletePost: async (req, res) => {
     try {
       // Find post by id
