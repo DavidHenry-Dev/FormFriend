@@ -36,7 +36,7 @@ module.exports = {
       console.log(err);
     }
   },
-  createPost: async (req, res) => {
+  createPost: async (req, res, upload) => {
     // Upload image to cloudinary
     try {
       const uploadedFile = await cloudinary.uploader.upload(req.file.path, {
