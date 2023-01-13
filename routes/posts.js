@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 const postsController = require('../controllers/posts');
 const { ensureAuth, ensureGuest } = require('../middleware/auth');
-const parser = require('parser');
+const upload = require('parser');
 
 
 
 //Post Routes - simplified for now
 router.get('/:id', ensureAuth, postsController.getPost);
 
-router.post('/createPost', parser.single('video'), postsController.createPost);
+router.post('/createPost', upload.single('video'), postsController.createPost);
 
 // router.put('/likePost/:id', postsController.likePost)
 
