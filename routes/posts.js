@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const postsController = require('../controllers/posts');
-const { ensureAuth, ensureGuest } = require('../middleware/auth');
 const multer = require('../middleware/multer');
+const { ensureAuth, ensureGuest } = require('../middleware/auth');
+const storage = require('storage');
+const parser = multer({ storage: storage });
 
 
 //Post Routes - simplified for now

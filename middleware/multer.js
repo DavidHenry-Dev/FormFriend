@@ -14,9 +14,10 @@ const storage =  new CloudinaryStorage({
  })
 });
 
-const parser = multer({ storage: storage });
 
-module.exports = parser;
+
+
+module.exports = storage;
 // module.exports = multer({
 //   storage: multer.diskStorage({}),
 //   fileFilter: (req, file, cb) => {
