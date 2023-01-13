@@ -39,11 +39,11 @@ module.exports = {
   createPost: async (req, res) => {
     // Upload image to cloudinary
     try {
-      const upload = await cloudinary.uploader.upload(req.file, {
+      const upload = await cloudinary.uploader.upload(req.files[0].path, {
         resource_type: 'video', 
         format: 'mp4',
-        // video_codec: 'h264',
-        // quality: 'auto:eco'
+        video_codec: 'h264',
+        quality: 'auto:eco'
       });
       await Post.create({
         title: req.body.title,
@@ -59,6 +59,7 @@ module.exports = {
     } catch (err) {
       console.log(JSON.stringify(err));
     }
+    console.log(req.files[0].path);
   },
   // likePost: async (req, res) => {
   //   try {
