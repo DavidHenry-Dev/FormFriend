@@ -5,7 +5,6 @@ require('dotenv').config({ path: './config/.env' });
 
 const upload = multer({
   storage: CloudinaryStorage({
-    cloudinary: cloudinary,
     folder: 'FormFriend/vidUploads',
     allowedFormats: ['mp4', 'MOV'],
     filename: function (req, file, cb) {
