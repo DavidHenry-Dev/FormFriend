@@ -57,7 +57,7 @@ module.exports = {
       console.log('Post has been added!');
       res.redirect('/profile');
     } catch (err) {
-      console.log(err);
+      console.log(JSON.stringify(err));
     }
   },
   // likePost: async (req, res) => {
