@@ -39,7 +39,7 @@ module.exports = {
   createPost: async (req, res) => {
     // Upload image to cloudinary
     try {
-      const uploadedFile = await cloudinary.uploader.upload(req.file.path, {
+      const uploadedFile = await cloudinary.uploader.upload(req.files[0].path, {
         resource_type: 'video', 
         format: 'mp4',
         video_codec: 'h264',
