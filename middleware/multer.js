@@ -11,7 +11,7 @@ const storage = new CloudinaryStorage({
     allowedFormats: ['mp4', 'MOV'],
 })
 
-const upload = multer({ storage, limits: { fileSize: maxSize} });
+const upload = multer({ storage: storage, limits: { fileSize: maxSize} });
 
 module.exports = upload;
 
