@@ -37,13 +37,18 @@ module.exports = {
     }
   },
   createPost: async (req, res) => {
+
+    if (!req.file) {
+      console.log("No file received");
+      return res.status(400).send("No file received");
+    }
     // Upload image to cloudinary
     try {
       const uploadedFile = await cloudinary.uploader.upload(req.file.path, {
         resource_type: 'video', 
-        format: 'mp4',
-        video_codec: 'h264',
-        quality: 'auto:eco'
+        // format: 'mp4',
+        // video_codec: 'h264',
+        // quality: 'auto:eco'
       });
       await Post.create({
         title: req.body.title,
