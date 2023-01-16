@@ -58,7 +58,7 @@ module.exports = {
       // res.send(post);
       res.redirect('/profile');
     } catch (err) {
-      console.log(err);
+      console.log(JSON.stringify(err));
     }
   },
 
