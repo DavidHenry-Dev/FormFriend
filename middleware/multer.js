@@ -1,16 +1,22 @@
 const multer = require('multer');
-const cloudinary = require('./cloudinary');
+const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const path = require("path");
 
 
 const storage = new CloudinaryStorage({
-    cloudinary: cloudinary,
-    folder: 'FormFriend/vidUploads',
-    allowedFormats: ['mp4', 'MOV'],
-})
+  cloudinary: cloudinary,
+  params: {
+      folder: 'FormFriend/vidUploads',
+      format: 'mp4',
+      quality: 'auto:eco'
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
 module.exports = upload;
 
