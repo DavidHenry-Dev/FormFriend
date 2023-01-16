@@ -1,7 +1,7 @@
 const cloudinary = require('../middleware/cloudinary');
 const Post = require('../models/Post');
 const Comment = require('../models/Comment');
-const path = require("path");
+
 
 module.exports = {
   getFeed: async (req, res) => {
@@ -37,15 +37,10 @@ module.exports = {
     }
   },
   createPost: async (req, res) => {
-
-    if (!req.file) {
-      console.log("No file received");
-      return res.status(400).send("No file received");
-    }
     // Upload image to cloudinary
     try {
       const uploadedFile = await cloudinary.uploader.upload(req.file.path, {
-        resource_type: 'video', 
+        resource_type: 'auto', 
         // format: 'mp4',
         // video_codec: 'h264',
         // quality: 'auto:eco'
