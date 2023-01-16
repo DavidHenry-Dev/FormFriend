@@ -3,7 +3,6 @@ const cloudinary = require('./cloudinary');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const path = require("path");
 
-const maxSize = 10 * 1024 * 1024
 
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
@@ -11,7 +10,7 @@ const storage = new CloudinaryStorage({
     allowedFormats: ['mp4', 'MOV'],
 })
 
-const upload = multer({ storage: storage, limits: { fileSize: maxSize} });
+const upload = multer({ storage: storage });
 
 module.exports = upload;
 
