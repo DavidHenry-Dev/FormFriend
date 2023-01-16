@@ -2,6 +2,8 @@ const multer = require('multer');
 const cloudinary = require('./cloudinary');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
+const maxSize = 10 * 1024 * 1024
+
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     folder: 'FormFriend/vidUploads',
@@ -11,7 +13,7 @@ const storage = new CloudinaryStorage({
     }
 })
 
-const upload = multer({ storage });
+const upload = multer({ storage, limits: { fileSize: maxSize} });
 
 module.exports = upload;
 
