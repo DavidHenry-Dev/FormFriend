@@ -8,7 +8,7 @@ const storage = new CloudinaryStorage({
   params: {
       folder: 'FormFriend/vidUploads',
       format: 'mp4',
-      quality: 'auto:eco'
+      quality: 'auto:eco',
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
