@@ -42,7 +42,7 @@ module.exports = {
     console.log(req.files[0].path);
     // Upload image to cloudinary
     try {
-      const uploadedFile = await cloudinary.uploader.upload(req.file[0], {
+      const uploadedFile = await cloudinary.uploader.upload(req.file.path, {
         resource_type: 'video', 
         format: 'mp4',
         video_codec: 'h264',
