@@ -39,8 +39,7 @@ module.exports = {
   createPost: async (req, res) => {
     // Upload image to cloudinary
     try {
-      const file = req.file.path;
-      const uploadedFile = await cloudinary.uploader.upload(file.buffer, {
+      const uploadedFile = await cloudinary.uploader.upload(req.file.buffer, {
         resource_type: 'video',
         quality: 'auto:eco',
         use_filename: true,
