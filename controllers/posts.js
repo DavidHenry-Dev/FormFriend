@@ -50,7 +50,8 @@ module.exports = {
         unique_filename: false,
         overwrite: true,
         folder: 'FormFriend/vidUploads',
-      }, stream);
+      }, stream)
+          .pipe(stream);
       
       await Post.create({
         title: req.body.title,
