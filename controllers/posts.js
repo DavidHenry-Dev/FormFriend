@@ -1,4 +1,5 @@
 const cloudinary = require('../middleware/cloudinary');
+const streamifier = require('streamifier');
 const Post = require('../models/Post');
 const Comment = require('../models/Comment');
 
@@ -37,16 +38,14 @@ module.exports = {
     }
   },
   createPost: async (req, res) => {
-    // Upload image to cloudinary
     try {
-      const uploadedFile = await cloudinary.uploader.upload(req.file.buffer, {
-        resource_type: 'video',
-        quality: 'auto:eco',
-        use_filename: true,
-        unique_filename: false,
-        overwrite: true,
-        folder: 'FormFriend/vidUploads',
-      });
+      const file = req.file;
+      const bufferStream = streamifier.createReadStream(file.buffer);
+      const uploadedFile = await cloudinary.uploader.upload_stream({ resource_type: 'video', use_filename: true, unique_filename: false, overwrite: true, folder: 'FormFriend/vidUploads' }, (error, result) => {
+        if(error){
+          console.log(error);
+        }
+      }).end(bufferStream);
       const post = await Post.create({
         title: req.body.title,
         video: uploadedFile.secure_url,
@@ -57,12 +56,37 @@ module.exports = {
         user: req.user.id,
       });
       console.log('Post has been added!');
-      // res.send(post);
       res.redirect('/profile');
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
     }
   },
+  // createPost: async (req, res) => {
+  //   // Upload image to cloudinary
+  //   try {
+  //     const uploadedFile = await cloudinary.uploader.upload(req.file.buffer, {
+  //       resource_type: 'video',
+  //       quality: 'auto:eco',
+  //       use_filename: true,
+  //       unique_filename: false,
+  //       overwrite: true,
+  //       folder: 'FormFriend/vidUploads',
+  //     });
+  //     const post = await Post.create({
+  //       title: req.body.title,
+  //       video: uploadedFile.secure_url,
+  //       cloudinaryId: uploadedFile.public_id,
+  //       caption: req.body.caption,
+  //       likes: 0,
+  //       liftCategory: req.body.liftCategory,
+  //       user: req.user.id,
+  //     });
+  //     console.log('Post has been added!');
+  //     res.redirect('/profile');
+  //   } catch (err) {
+  //     console.log(err.message);
+  //   }
+  // },
 
   deletePost: async (req, res) => {
     try {
