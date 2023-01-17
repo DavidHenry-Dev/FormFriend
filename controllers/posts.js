@@ -44,8 +44,8 @@ module.exports = {
     resource_type: 'video',
     quality: 'auto:eco',
     use_filename: true,
-    unique_filename: false,
-    overwrite: true,
+    unique_filename: true,
+    overwrite: false,
     folder: 'FormFriend/vidUploads',
     });
     
