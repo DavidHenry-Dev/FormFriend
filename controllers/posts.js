@@ -39,13 +39,16 @@ module.exports = {
   createPost: async (req, res) => {
     // Upload image to cloudinary
     try {
-      const uploadedFile = await cloudinary.uploader.upload(req.file.path, {
-        resource_type: 'video', 
-        // format: 'mp4',
-        // video_codec: 'h264',
-        quality: 'auto:eco'
+      const file = req.file;
+      const uploadedFile = await cloudinary.uploader.upload(file.buffer, {
+        resource_type: 'video',
+        quality: 'auto:eco',
+        use_filename: true,
+        unique_filename: false,
+        overwrite: true,
+        folder: 'FormFriend/vidUploads',
       });
-      await Post.create({
+      const post = await Post.create({
         title: req.body.title,
         video: uploadedFile.secure_url,
         cloudinaryId: uploadedFile.public_id,
