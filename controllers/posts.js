@@ -39,13 +39,23 @@ module.exports = {
   },
   createPost: async (req, res) => {
     try {
-      const file = req.file;
-      const bufferStream = streamifier.createReadStream(file.buffer);
-      const uploadedFile = await cloudinary.uploader.upload_stream({ resource_type: 'video', use_filename: true, unique_filename: false, overwrite: true, folder: 'FormFriend/vidUploads' }, (error, result) => {
-        if(error){
-          console.log(error);
-        }
-      }).end(bufferStream);
+      // convert the file to a buffer using streamifier
+      const buffer = await streamifier.createReadStream(req.file.buffer);
+
+      // use multer's memory storage with the buffer
+      const file = {
+        originalname: req.file.originalname,
+        buffer: buffer
+      };
+
+      const uploadedFile = await cloudinary.uploader.upload(file.buffer, {
+        resource_type: 'video',
+        quality: 'auto:eco',
+        use_filename: true,
+        unique_filename: false,
+        overwrite: true,
+        folder: 'FormFriend/vidUploads',
+      });
       const post = await Post.create({
         title: req.body.title,
         video: uploadedFile.secure_url,
