@@ -50,7 +50,8 @@ module.exports = {
         overwrite: true,
         folder: 'FormFriend/vidUploads',
       }, stream);
-      const post = await Post.create({
+      
+      await Post.create({
         title: req.body.title,
         video: uploadedFile.secure_url,
         cloudinaryId: uploadedFile.public_id,
