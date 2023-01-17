@@ -3,21 +3,25 @@ const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 
-module.exports = CloudinaryStorage({
+const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-      folder: 'FormFriend/vidUploads',
-      format: 'mp4',
-      quality: 'auto:eco',
+  folder: 'FormFriend/vidUploads',
+  format: async (req, file) => 'mp4', 
+  resource_type: 'video',
   },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
+  fileFilter: (req, file, cb) => {
+  if (file.mimetype === 'video/mp4' || file.mimetype === 'video/quicktime') {
+  cb(null, true);
+  } else {
+  cb(new Error('File type is not supported'), false);
   }
-});
-
-// const upload = multer({ storage });
-
-// module.exports = upload;
+  },
+  });
+  
+  const upload = multer({ storage });
+  
+  module.exports = upload;
 
 
 // module.exports = multer({
