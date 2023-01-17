@@ -43,7 +43,7 @@ module.exports = {
         resource_type: 'video', 
         // format: 'mp4',
         // video_codec: 'h264',
-        // quality: 'auto:eco'
+        quality: 'auto:eco'
       });
       await Post.create({
         title: req.body.title,
