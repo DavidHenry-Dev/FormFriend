@@ -49,13 +49,13 @@ module.exports = {
     folder: 'FormFriend/vidUploads',
     });
     
-    streamUploader.on('finish', async (result) => {
-      console.log(result);
+    streamUploader.on('finish', async (streamUploader) => {
+      console.log(streamUploader);
       try {
         await Post.create({
           title: req.body.title,
-          video: result.secure_url,
-          cloudinaryId: result.public_id,
+          video: streamUploader.secure_url,
+          cloudinaryId: streamUploader.public_id,
           caption: req.body.caption,
           likes: 0,
           liftCategory: req.body.liftCategory,
