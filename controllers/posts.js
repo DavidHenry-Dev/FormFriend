@@ -61,11 +61,11 @@ module.exports = {
           liftCategory: req.body.liftCategory,
           user: req.user.id,
         });
-        console.log('Post has been added!');
-        res.redirect('/profile');
       } catch (err) {
-        console.log(err);
+          console.log(err);
       }
+      console.log('Post has been added!');
+      res.redirect('/profile');
     });
     
     stream.pipe(streamUploader);
