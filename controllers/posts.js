@@ -40,16 +40,16 @@ module.exports = {
   createPost: async (req, res) => {
     try {
       // convert the MultiStream object into a Buffer object
-      const buffer = await streamifier.createReadStream(req.file.buffer)
+      const stream = streamifier.createReadStream(req.file.buffer)
       // use the buffer object to upload the file
-      const uploadedFile = await cloudinary.uploader.upload(buffer, {
+      const uploadedFile = await cloudinary.uploader.upload_stream({
         resource_type: 'video',
         quality: 'auto:eco',
         use_filename: true,
         unique_filename: false,
         overwrite: true,
         folder: 'FormFriend/vidUploads',
-      });
+      }, stream);
       const post = await Post.create({
         title: req.body.title,
         video: uploadedFile.secure_url,
