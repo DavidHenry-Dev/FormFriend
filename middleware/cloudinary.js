@@ -1,4 +1,4 @@
-const cloudinary = require('cloudinary').v2;
+const cloudinary = require('cloudinary');
 
 cloudinary.config({
   cloudinary_url: process.env.CLOUDINARY_URL,
