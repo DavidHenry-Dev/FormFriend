@@ -39,16 +39,10 @@ module.exports = {
   },
   createPost: async (req, res) => {
     try {
-      // convert the file to a buffer using streamifier
-      const buffer = await streamifier.createReadStream(req.file.buffer);
-
-      // use multer's memory storage with the buffer
-      const file = {
-        originalname: req.file.originalname,
-        buffer: buffer
-      };
-
-      const uploadedFile = await cloudinary.uploader.upload(file.buffer, {
+      // convert the MultiStream object into a Buffer object
+      const buffer = await streamifier.createReadStream(req.file.buffer)
+      // use the buffer object to upload the file
+      const uploadedFile = await cloudinary.uploader.upload(buffer, {
         resource_type: 'video',
         quality: 'auto:eco',
         use_filename: true,
