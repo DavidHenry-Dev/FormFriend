@@ -38,34 +38,38 @@ module.exports = {
     }
   },
   createPost: async (req, res) => {
-    try {
-      // convert the MultiStream object into a Buffer object
-      const stream = streamifier.createReadStream(req.file.buffer)
-      // use the buffer object to upload the file
-      const uploadedFile = await cloudinary.uploader.upload_stream({
-        resource_type: 'video',
-        quality: 'auto:eco',
-        use_filename: true,
-        unique_filename: false,
-        overwrite: true,
-        folder: 'FormFriend/vidUploads',
-      }).pipe(stream);
-      
-      await Post.create({
-        title: req.body.title,
-        video: uploadedFile.secure_url,
-        cloudinaryId: uploadedFile.public_id,
-        caption: req.body.caption,
-        likes: 0,
-        liftCategory: req.body.liftCategory,
-        user: req.user.id,
-      });
-      console.log('Post has been added!');
-      res.redirect('/profile');
-    } catch (err) {
-      console.log(err);
-    }
-  },
+    
+    const stream = streamifier.createReadStream(req.file.buffer)
+    const streamUploader = cloudinary.uploader.upload_stream({
+    resource_type: 'video',
+    quality: 'auto:eco',
+    use_filename: true,
+    unique_filename: false,
+    overwrite: true,
+    folder: 'FormFriend/vidUploads',
+    });
+    
+    streamUploader.on('finish', async (result) => {
+      console.log(result);
+      try {
+        await Post.create({
+          title: req.body.title,
+          video: result.secure_url,
+          cloudinaryId: result.public_id,
+          caption: req.body.caption,
+          likes: 0,
+          liftCategory: req.body.liftCategory,
+          user: req.user.id,
+        });
+        console.log('Post has been added!');
+        res.redirect('/profile');
+      } catch (err) {
+        console.log(err);
+      }
+    });
+    
+    stream.pipe(streamUploader);
+    },
   // createPost: async (req, res) => {
   //   // Upload image to cloudinary
   //   try {
