@@ -43,14 +43,14 @@ module.exports = {
       console.log(req.file)
       const stream = streamifier.createReadStream(req.file.buffer)
       // use the buffer object to upload the file
-      const uploadedFile = await cloudinary.uploader.upload_stream(stream,{
+      const uploadedFile = await cloudinary.uploader.upload_stream({
         resource_type: 'video',
         quality: 'auto:eco',
         use_filename: true,
         unique_filename: false,
         overwrite: true,
         folder: 'FormFriend/vidUploads',
-      });
+      }, stream);
       
       await Post.create({
         title: req.body.title,
