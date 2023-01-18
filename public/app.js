@@ -8,7 +8,7 @@ const toPost= document.querySelector('#goToPost').addEventListener('click', ()=>
 
 
 
-submitButton.addEventListener('change', e => {
+videoInput.addEventListener('change', e => {
   e.preventDefault();
   const video = videoInput.files[0];
   if (!video) {
