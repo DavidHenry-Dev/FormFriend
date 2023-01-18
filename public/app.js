@@ -10,7 +10,7 @@ const toPost= document.querySelector('#goToPost').addEventListener('click', ()=>
 
 submitButton.addEventListener('click', e => {
   e.preventDefault();
-  const video = videoInput.files[0];
+  const video = videoInput.file[0];
   if (!video) {
     alert('Please select a video');
   } else if (video.size > 5 * 1024 * 1024) {
