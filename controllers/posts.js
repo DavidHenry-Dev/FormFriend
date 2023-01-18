@@ -37,47 +37,82 @@ module.exports = {
       console.log(err);
     }
   },
-  createPost: async (req, res) => {
-    const stream = streamifier.createReadStream(req.file.buffer);
-    const uploadPromise = new Promise((resolve, reject) => {
-        const streamUploader = cloudinary.uploader.upload_stream({
-            resource_type: 'video',
-            quality: 'auto:eco',
-            use_filename: true,
-            unique_filename: true,
-            overwrite: false,
-            folder: 'FormFriend/vidUploads',
-        }, (err, result) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(result);
-            }
-        });
-        stream.pipe(streamUploader);
-    });
 
-    uploadPromise
-        .then(async (result) => {
-            try {
-                await Post.create({
-                    title: req.body.title,
-                    video: result.secure_url,
-                    cloudinaryId: result.public_id,
-                    caption: req.body.caption,
-                    liftCategory: req.body.liftCategory,
-                    user: req.user.id,
-                });
-                console.log('Post has been added!');
-                res.redirect('/profile');
-            } catch (err) {
-                console.log(err);
-            }
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    },
+  createPost: async (req, res) => {
+    try {
+        const stream = streamifier.createReadStream(req.file.buffer);
+        const result = await new Promise((resolve, reject) => {
+            const streamUploader = cloudinary.uploader.upload_stream({
+                resource_type: 'video',
+                quality: 'auto:eco',
+                use_filename: true,
+                unique_filename: true,
+                overwrite: false,
+                folder: 'FormFriend/vidUploads',
+            }, (err, result) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(result);
+                }
+            });
+            stream.pipe(streamUploader);
+        });
+        await Post.create({
+            title: req.body.title,
+            video: result.secure_url,
+            cloudinaryId: result.public_id,
+            caption: req.body.caption,
+            liftCategory: req.body.liftCategory,
+            user: req.user.id,
+        });
+        console.log('Post has been added!');
+        res.redirect('/profile');
+    } catch (err) {
+        console.log(err);
+    }
+},
+  // createPost: async (req, res) => {
+  //   const stream = streamifier.createReadStream(req.file.buffer);
+  //   const uploadPromise = new Promise((resolve, reject) => {
+  //       const streamUploader = cloudinary.uploader.upload_stream({
+  //           resource_type: 'video',
+  //           quality: 'auto:eco',
+  //           use_filename: true,
+  //           unique_filename: true,
+  //           overwrite: false,
+  //           folder: 'FormFriend/vidUploads',
+  //       }, (err, result) => {
+  //           if (err) {
+  //               reject(err);
+  //           } else {
+  //               resolve(result);
+  //           }
+  //       });
+  //       stream.pipe(streamUploader);
+  //   });
+
+  //   uploadPromise
+  //       .then(async (result) => {
+  //           try {
+  //               await Post.create({
+  //                   title: req.body.title,
+  //                   video: result.secure_url,
+  //                   cloudinaryId: result.public_id,
+  //                   caption: req.body.caption,
+  //                   liftCategory: req.body.liftCategory,
+  //                   user: req.user.id,
+  //               });
+  //               console.log('Post has been added!');
+  //               res.redirect('/profile');
+  //           } catch (err) {
+  //               console.log(err);
+  //           }
+  //       })
+  //       .catch(err => {
+  //           console.log(err)
+  //       })
+  //   },
     
   // createPost: async (req, res) => {
     
