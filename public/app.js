@@ -16,7 +16,5 @@ videoInput.addEventListener('change', e => {
   } else if (video.size > 25 * 1024 * 1024) {
     alert('Video is too large. Maximum file size is 25MB');
     form.reset();
-  } else {
-    form.submit();
   }
 });
