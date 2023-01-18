@@ -9,6 +9,7 @@ const toPost= document.querySelector('#goToPost').addEventListener('click', ()=>
 
 
 videoInput.addEventListener('change', e => {
+  e.preventDefault();
   const video = videoInput.files[0];
   if (!video) {
     alert('Please select a video');
