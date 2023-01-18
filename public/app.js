@@ -15,8 +15,6 @@ submitButton.addEventListener('click', e => {
     alert('Please select a video');
   } else if (video.size > 20 * 1024 * 1024) {
     alert('Video is too large. Maximum file size is 20MB');
-  } else if (video.type !== 'video/mp4' || video.type !== 'video/quicktime') {
-    alert('Invalid file type. Only mp4 videos are allowed');
   } else {
     form.submit();
   }
