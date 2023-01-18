@@ -1,4 +1,4 @@
-const form = document.querySelector('form');
+const form = document.querySelector('#upload-form');
 const videoInput = document.querySelector('#video');
 const submitButton = document.querySelector('#submit-button');
 const yourPost = document.querySelector('#viewPost')
