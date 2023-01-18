@@ -44,7 +44,7 @@ module.exports = {
         const result = await new Promise((resolve, reject) => {
             const streamUploader = cloudinary.uploader.upload_stream({
                 resource_type: 'video',
-                format: 'h265',
+                format: 'h264',
                 quality: 'auto:eco',
                 use_filename: true,
                 unique_filename: true,
