@@ -6,7 +6,7 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage, limits: {
-  fileSize: 26214400,
+  fileSize: 52428800,
 } });
 
 module.exports = upload;
