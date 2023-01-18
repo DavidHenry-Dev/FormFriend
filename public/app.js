@@ -8,8 +8,7 @@ const toPost= document.querySelector('#goToPost').addEventListener('click', ()=>
 
 
 
-form.addEventListener('change', e => {
-  e.preventDefault();
+videoInput.addEventListener('change', e => {
   const video = videoInput.files[0];
   if (!video) {
     alert('Please select a video');
@@ -19,4 +18,5 @@ form.addEventListener('change', e => {
     form.reset();
     return false;
   }
+  return true;
 });
