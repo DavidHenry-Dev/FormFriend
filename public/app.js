@@ -21,3 +21,24 @@ videoInput.addEventListener('change', e => {
   }
   return true;
 });
+
+
+// Get the video element
+const vidPreview = document.getElementById("vid");
+
+// Create an image element
+const img = document.createElement("img");
+
+// Create an object URL for the video
+const videoUrl = URL.createObjectURL(vidPreview);
+
+// Set the src of the image element to the object URL
+img.src = videoUrl;
+
+// Set the poster attribute of the video element to the image element
+vidPreview.setAttribute("poster", img.src);
+
+// When you're done with the object URL, revoke it to release the memory.
+vidPreview.onloadeddata = function() {
+    URL.revokeObjectURL(videoUrl);
+}
