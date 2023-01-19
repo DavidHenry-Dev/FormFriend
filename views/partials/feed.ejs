@@ -1,5 +1,5 @@
-<!-- <% include ('../../public/app', {date: date, time: time}) %> -->
 <% for(var i=0; i<posts.length; i++) {%>
+  <% include ('../../public/app', {date: date, time: time}) %>
   <div class="flex justify-center">
     <div class="flex flex-col border-2 bg-customSecondary shadow-sm sm:max-w-xl sm:flex-row">
       <video id="vid" controls="controls" loop muted preload="metadata" playsinline name="Video Name" onload="setPoster()" class="w-9/10 block aspect-square h-full object-cover shadow-md brightness-75 sm:max-w-xs">
@@ -22,5 +22,5 @@
   </div>
   <% } %>
 
-  <script src="../../public/app.js"
+
 
