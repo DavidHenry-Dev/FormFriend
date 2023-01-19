@@ -2,7 +2,7 @@ const cloudinary = require('../middleware/cloudinary');
 const streamifier = require('streamifier');
 const Post = require('../models/Post');
 const Comment = require('../models/Comment');
-
+const moment = require('moment')
 
 module.exports = {
   getFeed: async (req, res) => {
