@@ -25,8 +25,4 @@ videoInput.addEventListener('change', e => {
 });
 
 
-let utcTime = new Date(posts[i].createdAt);
-let localTime = new Date(utcTime.getTime() + utcTime.getTimezoneOffset() * 60000);
 
-let date = localTime.toLocaleDateString();
-let time = localTime.toLocaleTimeString();
