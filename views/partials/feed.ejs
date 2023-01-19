@@ -5,10 +5,8 @@
         <source src="<%= posts[i].video%>#t=0.1" type="video/mp4" class=""/>
       </video>
       <div class="container flex flex-col justify-start gap-y-3 p-6">
-        <% let utcTime = new Date(posts[i].createdAt); let localTime = new Date(utcTime.getTime() + utcTime.getTimezoneOffset() * 60000); %>
-        <% let date = localTime.toLocaleDateString(); let time = localTime.toLocaleTimeString(); %>
         <h5 class="mb-2 text-xl font-semibold text-gray-900"><%= posts[i].title %></h5>
-        <p class="text-s text-gray-600"><span class="font-semibold">Posted:</span><%= date %> @ <%= time %></p>
+        <p class="text-s text-gray-600"><span class="font-semibold">Posted:</span> <%= posts[i].createdAt.toLocaleDateString()%> @ <%= posts[i].createdAt.toLocaleTimeString() %></p>
         <p class="text-s text-gray-600"><span class="font-semibold">By:</span> <%= posts[i].user.userName.split("@")[0] %></p>
         <p class="text-s text-gray-600"><span class="font-semibold">Category:</span> <%= posts[i].liftCategory %></p>
         <div class="mt-5 flex flex-1 flex-col justify-end">
@@ -22,6 +20,4 @@
     </div>
   </div>
   <% } %>
-
-
 

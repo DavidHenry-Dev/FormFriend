@@ -40,6 +40,8 @@ module.exports = {
 
   createPost: async (req, res) => {
     try {
+        const offset = req.body.timezone;
+        const localTime = moment().utcOffset(offset).toDate();
         const stream = streamifier.createReadStream(req.file.buffer);
         const result = await new Promise((resolve, reject) => {
             const streamUploader = cloudinary.uploader.upload_stream({
@@ -66,6 +68,7 @@ module.exports = {
             caption: req.body.caption,
             liftCategory: req.body.liftCategory,
             user: req.user.id,
+            createdAt: localTime,
         });
         console.log('Post has been added!');
         res.redirect('/profile');
