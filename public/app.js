@@ -1,5 +1,5 @@
-const form = document.querySelector('#upload-form');
-const videoInput = document.querySelector('#video');
+
+// Add scrolling down to post by the user on profile page
 const submitButton = document.querySelector('#submit-button');
 const yourPost = document.querySelector('#viewPost')
 const toPost= document.querySelector('#goToPost').addEventListener('click', ()=>{
@@ -7,7 +7,9 @@ const toPost= document.querySelector('#goToPost').addEventListener('click', ()=>
 })
 
 
-
+// Form video/video size validation
+const videoInput = document.querySelector('#video');
+const form = document.querySelector('#upload-form');
 videoInput.addEventListener('change', e => {
   e.preventDefault();
   const video = videoInput.files[0];
