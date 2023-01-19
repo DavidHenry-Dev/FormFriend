@@ -24,28 +24,9 @@ videoInput.addEventListener('change', e => {
   return true;
 });
 
-// const video = document.getElementById("vid");
-// const videoUrl = URL.createObjectURL(video.currentSrc);
-// const img = new Image();
-// img.src = videoUrl;
-// video.setAttribute("poster", img.src);
-// URL.revokeObjectURL(videoUrl);
-// // Get the video element
-// const vidPreview = document.getElementById("vid");
 
-// // Create an image element
-// const img = document.createElement("img");
+let utcTime = new Date(posts[i].createdAt);
+let localTime = new Date(utcTime.getTime() + utcTime.getTimezoneOffset() * 60000);
 
-// // Create an object URL for the video
-// const videoUrl = URL.createObjectURL(vidPreview);
-
-// // Set the src of the image element to the object URL
-// img.src = videoUrl;
-
-// // Set the poster attribute of the video element to the image element
-// vidPreview.setAttribute("poster", img.src);
-
-// // When you're done with the object URL, revoke it to release the memory.
-// vidPreview.onloadeddata = function() {
-//     URL.revokeObjectURL(videoUrl);
-// }
+let date = localTime.toLocaleDateString();
+let time = localTime.toLocaleTimeString();
