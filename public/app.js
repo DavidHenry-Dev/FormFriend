@@ -24,12 +24,12 @@ videoInput.addEventListener('change', e => {
   return true;
 });
 
-const video = document.getElementById("vid");
-const videoUrl = URL.createObjectURL(video.currentSrc);
-const img = new Image();
-img.src = videoUrl;
-video.setAttribute("poster", img.src);
-URL.revokeObjectURL(videoUrl);
+// const video = document.getElementById("vid");
+// const videoUrl = URL.createObjectURL(video.currentSrc);
+// const img = new Image();
+// img.src = videoUrl;
+// video.setAttribute("poster", img.src);
+// URL.revokeObjectURL(videoUrl);
 // // Get the video element
 // const vidPreview = document.getElementById("vid");
 
