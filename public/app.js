@@ -24,7 +24,7 @@ videoInput.addEventListener('change', e => {
   return true;
 });
 
-const video = document.getElementById("video");
+const video = document.getElementById("vid");
 
 // Create an image element
 const img = document.createElement("img");
