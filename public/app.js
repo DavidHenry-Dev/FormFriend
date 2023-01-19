@@ -24,23 +24,12 @@ videoInput.addEventListener('change', e => {
   return true;
 });
 
-function setPoster() {
-  // Get the video element
-  const video = document.getElementById("vid");
-
-  // Create an image element
-  const img = document.createElement("img");
-
-  // Create an object URL for the video
-  const videoUrl = URL.createObjectURL(video);
-
-  // Set the src of the image element to the object URL
-  img.src = videoUrl;
-
-  // Set the poster attribute of the video element to the image element
-  video.setAttribute("poster", img.src);
-  URL.revokeObjectURL(videoUrl);
-}
+const video = document.getElementById("vid");
+const videoUrl = URL.createObjectURL(video.currentSrc);
+const img = new Image();
+img.src = videoUrl;
+video.setAttribute("poster", img.src);
+URL.revokeObjectURL(videoUrl);
 // // Get the video element
 // const vidPreview = document.getElementById("vid");
 
