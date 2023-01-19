@@ -68,7 +68,7 @@ module.exports = {
             caption: req.body.caption,
             liftCategory: req.body.liftCategory,
             user: req.user.id,
-            createdAt: localTime,
+            createdAt: new Date().toLocaleString(),
         });
         console.log('Post has been added!');
         res.redirect('/profile');
