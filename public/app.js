@@ -30,3 +30,5 @@ let localTime = new Date(utcTime.getTime() + utcTime.getTimezoneOffset() * 60000
 
 let date = localTime.toLocaleDateString();
 let time = localTime.toLocaleTimeString();
+
+export {date, time}
