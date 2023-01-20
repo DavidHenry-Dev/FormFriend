@@ -16,9 +16,6 @@ module.exports = {
   },
   getProfile: async (req, res) => {
     try {
-      let timezoneOffset = req.body.timezoneOffset;
-      // Convert minutes to hours
-      timezoneOffset = timezoneOffset / 60;
       const posts = await Post.find({ user: req.user.id });
       const comments = await Comment.find({ profile: req.params.id }).sort({ createdAt: 'desc' }).populate('user').lean();
       res.render('profile.ejs', { posts: posts, user: req.user, path: req.path, comments: comments, timezone: timezoneOffset });
@@ -43,6 +40,9 @@ module.exports = {
 
   createPost: async (req, res) => {
     try {
+        let timezoneOffset = req.body.timezoneOffset;
+        // Convert minutes to hours
+        timezoneOffset = timezoneOffset / 60;
         const stream = streamifier.createReadStream(req.file.buffer);
         const result = await new Promise((resolve, reject) => {
             const streamUploader = cloudinary.uploader.upload_stream({
