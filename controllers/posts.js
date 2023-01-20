@@ -39,10 +39,12 @@ module.exports = {
   },
 
   createPost: async (req, res) => {
-       let timezoneOffset = req.body.timezoneOffset;
-        // Convert minutes to hours
-        timezoneOffset = timezoneOffset / 60;
+      
     try {
+      let timezone = new Date();
+      if (req.body.timezoneOffset) {
+          timezone.setMinutes(timezone.getMinutes() + req.body.timezoneOffset);
+       };
         const stream = streamifier.createReadStream(req.file.buffer);
         const result = await new Promise((resolve, reject) => {
             const streamUploader = cloudinary.uploader.upload_stream({
@@ -69,7 +71,7 @@ module.exports = {
             caption: req.body.caption,
             liftCategory: req.body.liftCategory,
             user: req.user.id,
-            createdAt: timezoneOffset,
+            createdAt: timezone,
         });
         console.log('Post has been added!');
         res.redirect('/profile');
