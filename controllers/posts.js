@@ -39,13 +39,13 @@ module.exports = {
   },
 
   createPost: async (req, res) => {
-      
+    let timezone = new Date();
+    if (req.body.timezoneOffset) {
+        timezone.setMinutes(timezone.getMinutes() + req.body.timezoneOffset);
+     };
+  
     try {
-      let timezone = new Date();
-      if (req.body.timezoneOffset) {
-          timezone.setMinutes(timezone.getMinutes() + req.body.timezoneOffset);
-       };
-        const stream = streamifier.createReadStream(req.file.buffer);
+      stream = streamifier.createReadStream(req.file.buffer);
         const result = await new Promise((resolve, reject) => {
             const streamUploader = cloudinary.uploader.upload_stream({
                 resource_type: 'video',
