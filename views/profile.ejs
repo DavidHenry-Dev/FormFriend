@@ -67,8 +67,8 @@
   <%- include('partials/post') -%>
 </div>
 <script>
-  let form = document.getElementById('upload-form');
-form.addEventListener('submit', function(e) {
+  let getTime = document.getElementById('upload-form');
+getTime.addEventListener('submit', function(e) {
   e.preventDefault();
   let timezoneOffset = new Date().getTimezoneOffset();
   document.getElementById('timezoneOffset').value = timezoneOffset;
