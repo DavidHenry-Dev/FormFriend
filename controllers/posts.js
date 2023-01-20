@@ -40,10 +40,10 @@ module.exports = {
 
   createPost: async (req, res) => {
     let timezone = new Date();
-    if (req.body.timezoneOffset) {
-        timezone.setMinutes(timezone.getMinutes() + req.body.timezoneOffset * 60);
-     };
-  
+        if (req.body.timezoneOffset) {
+            let offsetInMinutes = req.body.timezoneOffset;
+            timezone = new Date(timezone.getTime() - offsetInMinutes*60*1000);
+        }
     try {
       stream = streamifier.createReadStream(req.file.buffer);
         const result = await new Promise((resolve, reject) => {
