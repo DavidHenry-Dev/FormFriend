@@ -16,9 +16,12 @@ module.exports = {
   },
   getProfile: async (req, res) => {
     try {
+      let timezoneOffset = req.body.timezoneOffset;
+      // Convert minutes to hours
+      timezoneOffset = timezoneOffset / 60;
       const posts = await Post.find({ user: req.user.id });
       const comments = await Comment.find({ profile: req.params.id }).sort({ createdAt: 'desc' }).populate('user').lean();
-      res.render('profile.ejs', { posts: posts, user: req.user, path: req.path, comments: comments });
+      res.render('profile.ejs', { posts: posts, user: req.user, path: req.path, comments: comments, timezone: timezoneOffset });
     } catch (err) {
       console.log(err);
     }
@@ -40,8 +43,6 @@ module.exports = {
 
   createPost: async (req, res) => {
     try {
-        const offset = req.body.timezone;
-        const localTime = moment().utcOffset(offset).toDate();
         const stream = streamifier.createReadStream(req.file.buffer);
         const result = await new Promise((resolve, reject) => {
             const streamUploader = cloudinary.uploader.upload_stream({
@@ -68,7 +69,7 @@ module.exports = {
             caption: req.body.caption,
             liftCategory: req.body.liftCategory,
             user: req.user.id,
-            createdAt: new Date().toLocaleString(offset),
+            createdAt: req.body.timezone,
         });
         console.log('Post has been added!');
         res.redirect('/profile');
