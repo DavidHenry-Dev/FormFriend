@@ -41,7 +41,7 @@ module.exports = {
   createPost: async (req, res) => {
     let timezone = new Date();
     if (req.body.timezoneOffset) {
-        timezone.setMinutes(timezone.getMinutes() + req.body.timezoneOffset * 60 * 1000);
+        timezone.setMinutes(timezone.getMinutes() + req.body.timezoneOffset / 60);
      };
   
     try {
