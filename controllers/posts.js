@@ -18,7 +18,7 @@ module.exports = {
     try {
       const posts = await Post.find({ user: req.user.id });
       const comments = await Comment.find({ profile: req.params.id }).sort({ createdAt: 'desc' }).populate('user').lean();
-      res.render('profile.ejs', { posts: posts, user: req.user, path: req.path, comments: comments, timezone: timezoneOffset });
+      res.render('profile.ejs', { posts: posts, user: req.user, path: req.path, comments: comments });
     } catch (err) {
       console.log(err);
     }
