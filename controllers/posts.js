@@ -39,10 +39,10 @@ module.exports = {
   },
 
   createPost: async (req, res) => {
-    try {
-        let timezoneOffset = req.body.timezoneOffset;
+       let timezoneOffset = req.body.timezoneOffset;
         // Convert minutes to hours
         timezoneOffset = timezoneOffset / 60;
+    try {
         const stream = streamifier.createReadStream(req.file.buffer);
         const result = await new Promise((resolve, reject) => {
             const streamUploader = cloudinary.uploader.upload_stream({
