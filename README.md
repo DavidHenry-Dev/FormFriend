@@ -69,15 +69,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<div align="center">
-    <img src="https://res.cloudinary.com/davidhenrydev/image/upload/v1664852949/FormFriend/Feed_gvovnw.png">
-</div>
- <div align="center">
-    <img src="https://res.cloudinary.com/davidhenrydev/image/upload/v1664853093/FormFriend/feed2_rtbr8z.png">
-</div>
-  <div align="center">                                                                                                          
-    <img src="https://res.cloudinary.com/davidhenrydev/image/upload/v1664852968/FormFriend/post_ortgs5.png">
-</div>
+<video src="https://res.cloudinary.com/davidhenrydev/video/upload/v1674581308/FormFriend/gh41hc3cqk0bhuasapqj.mp4" controls="controls" muted="muted" playsinline="playsinline"></video>
                                                                                                         
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
