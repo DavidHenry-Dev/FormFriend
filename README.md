@@ -29,14 +29,10 @@
 <h3 align="center"></h3>
 
   <p align="center">
-    **JUST MOVED FROM LOCAL TO A LIVE DEMO AS OF 1/9/2023, SITE RUNS BUT I'M WORKING ON GETTING LARGER VIDEO UPLOADS WORKING**. A Full Stack app that let's weightlifters of all experiences upload videos of their form and receive feedback on it from others. As a previously very-overweight guy, fitness has a become one of my passions. A big problem many lifters face, especially novices, is getting proper feedback on form which is absolutely CRUCIAL.
+    A Full Stack app that let's weightlifters of all experiences upload videos of their form and receive feedback on it from others. As a previously very-overweight guy, fitness has a become one of my passions. A big problem many lifters face, especially novices, is getting proper feedback on form which is absolutely CRUCIAL.
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://formfriend.cyclic.app/">View Live Demo</a>
   </p>
 </div>
 
@@ -144,7 +140,7 @@ A computer, code editor, a free cloudinary account, a free mongo atlas account, 
 - [ ] Add ability to upload user photo for the user's profile
 - [ ] Add some kind of search/sorting for post ( For example, by bodypart category )
 - [ ] Add one or two minor interactivity niceties, such a a return to top button, etc etc
-- [ ] Replace EJS with React? We shall see!
+- [ ] Rebuild with React? We shall see!
 
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
