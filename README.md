@@ -69,7 +69,17 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<video src="https://res.cloudinary.com/davidhenrydev/video/upload/v1674581308/FormFriend/gh41hc3cqk0bhuasapqj.mp4" controls="controls" muted="muted" playsinline="playsinline"></video>
+   <p align="center">
+    Users are able to create accounts, sign in, and post videos which will show up on a main feed with other user's uploads. They can then comment and vote on other's form videos and try to give helpful feedback. User's can also delete their own comments and posts. Below is a short demo starting at the user's profile page.
+    <br />
+    <br />
+  </p>
+
+
+
+https://user-images.githubusercontent.com/69222416/214372046-cfaa2555-5dfc-45c1-b2e2-0228be1fa2ba.mp4
+
+
                                                                                                         
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -129,9 +139,8 @@ A computer, code editor, a free cloudinary account, a free mongo atlas account, 
 <!-- ROADMAP AND OPTIMIZATIONS -->
 ## Roadmap and Optimizations
 
-- [ ] Add ability to upload user photo for the user's profile
-- [ ] Add some kind of search/sorting for post ( For example, by bodypart category )
-- [ ] Add one or two minor interactivity niceties, such a a return to top button, etc etc
+- [ ] Add more user account customization ( Profile pic, lifting stats, age, height etc etc )
+- [ ] Add some kind of search/sorting for the feed ( For example, by bodypart category )
 - [ ] Rebuild with React? We shall see!
 
 
